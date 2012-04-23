@@ -16,6 +16,7 @@ public class HomeBase2Activity extends TabActivity {
         
         // Set a listener to the button
         Button t1_LL1_btn1 = (Button) findViewById(R.id.t1_LL1_btn1);
+        t1_LL1_btn1.setTag("generatePassword");
         t1_LL1_btn1.setOnClickListener(new ButtonClickListener(this));
     }
 }

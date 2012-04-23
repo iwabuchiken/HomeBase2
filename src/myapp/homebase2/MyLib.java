@@ -10,6 +10,10 @@ public class MyLib {
 	// String for "generatePassword()"
 	static String charSource = "abcdefghijklmn";
 	
+	// Password types
+	enum PwdTypes {
+			ALPHA, NUM, ALNUM
+	}
 	
 	//
 	public MyLib() {
@@ -44,6 +48,41 @@ public class MyLib {
 			// alphabet or number ?
 			judge = rd.nextInt(2);
 			
+			
+			// get a char
+			sb.append(charSource.charAt(rd.nextInt(charSource.length())));
+		}//for (int i = 0; i < array.length; i++)
+		
+		// get a string		
+		
+		return sb.toString();
+		
+	}//generatePassword()
+
+	// generate a password
+	public static String generatePassword(PwdTypes pwdType) {
+		
+		// StringBuilder
+		StringBuilder sb = new StringBuilder();
+		
+		// get chars
+		Random rd;
+		int judge;
+		
+		for (int i = 0; i < 5; i++) {
+			// instance
+			rd = new Random((long) (Math.random()*1000000));
+			
+//			// alphabet or number ?
+//			judge = rd.nextInt(2);
+//			if (judge == 0) {
+//				// get a char
+//				sb.append(charSource.charAt(rd.nextInt(charSource.length())));
+//			} else if (judge == 1) {//if (judge == 0)
+//				// get a number
+//				sb.append(charSource.charAt(rd.nextInt(charSource.length())));
+//			}//if (judge == 0)
+//			
 			
 			// get a char
 			sb.append(charSource.charAt(rd.nextInt(charSource.length())));
