@@ -10,16 +10,13 @@ public class MyLib {
 	// String for "generatePassword()"
 	static String charSource = "abcdefghijklmn";
 	
-	// Password types
+	// Password types			//=> NOT USED
 	enum PwdTypes {
 			ALPHA, NUM, ALNUM
 	}
 	
 	//
 	public MyLib() {
-//		tabSet.put(1, R.id.tab1);
-//		tabSet.put(2, R.id.tab2);
-//		tabSet.put(3, R.id.tab3);
 		tabSet.put(0, R.id.tab1);
 		tabSet.put(1, R.id.tab2);
 		tabSet.put(2, R.id.tab3);
@@ -73,60 +70,37 @@ public class MyLib {
 		/*
 		 *  build a string
 		 */
-		
+
 		// switching
 		if (type == 0) {							// alphabets only
+			
 			for (int i = 0; i < 5; i++) {
-//				rd = new Random((long) (Math.random()*1000000));
 				sb.append(charSource.charAt(rd.nextInt(charSource.length())));
 			}//for (int i = 0; i < 5; i++)
 			
 		} else if (type == 1){					// numbers only
+			
 			for (int i = 0; i < 5; i++) {
-//				rd = new Random((long) (Math.random()*1000000));
 				sb.append(String.valueOf(rd.nextInt(10)));
 			}//for (int i = 0; i < 5; i++)
 			
 		} else if (type == 2){					// mixture
-//			sb.append("Sorry. Not yet prepared for this choice!");
+			
 			for (int i = 0; i < 5; i++) {
 				int flag = rd2.nextInt(2);
 				switch (flag) {
 					case 0:
-//						rd = new Random((long) (Math.random()*1000000));
 						sb.append(charSource.charAt(rd.nextInt(charSource.length())));
 						break;
 					case 1:
-//						rd = new Random((long) (Math.random()*1000000));
 						sb.append(String.valueOf(rd.nextInt(10)));
 						break;
 					default:
 						break;
 				}//switch (flag)
 			}//for (int i = 0; i < 5; i++)
+			
 		}//if (type == 0)
-		
-		
-//		for (int i = 0; i < 5; i++) {
-//			// instance
-//			rd = new Random((long) (Math.random()*1000000));
-			
-//			// alphabet or number ?
-//			judge = rd.nextInt(2);
-//			if (judge == 0) {
-//				// get a char
-//				sb.append(charSource.charAt(rd.nextInt(charSource.length())));
-//			} else if (judge == 1) {//if (judge == 0)
-//				// get a number
-//				sb.append(charSource.charAt(rd.nextInt(charSource.length())));
-//			}//if (judge == 0)
-//			
-			
-//			// get a char
-//			sb.append(charSource.charAt(rd.nextInt(charSource.length())));
-//		}//for (int i = 0; i < array.length; i++)
-		
-		// get a string		
 		
 		return sb.toString();
 		

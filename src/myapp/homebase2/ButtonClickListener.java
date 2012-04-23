@@ -28,18 +28,7 @@ public class ButtonClickListener implements OnClickListener {
 		} else {//if (tag.equalsIgnoreCase("generatePassword"))
 			
 		}//if (tag.equalsIgnoreCase("generatePassword"))
-		;
-		
-//		// debug
-////		Toast.makeText(context, "yes", Toast.LENGTH_SHORT).show();
-//		
-//		// get a TextView object
-//		TextView tv1 = (TextView) context.findViewById(R.id.t1_LL1_tv1);
-//		
-//		// set a text
-////		tv1.setText("YES");
-//		tv1.setText(MyLib.generatePassword());
-		
+
 	}
 
 	/**

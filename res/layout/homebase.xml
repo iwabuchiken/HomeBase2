@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical" >
-
+
             <LinearLayout
                 android:id="@+id/tab1_LL1"
                 android:layout_width="match_parent"
@@ -24,7 +24,7 @@
                     android:layout_width="150sp"
                     android:layout_height="wrap_content"
                     android:text="@string/tab1_LL1_btn1" />
-
+
                 <TextView
                     android:id="@+id/t1_LL1_tv1"
                     android:layout_width="match_parent"
