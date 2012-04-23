@@ -89,8 +89,15 @@ public class ButtonClickListener implements OnClickListener {
 				
 				// set text
 				TextView tv = (TextView) context.findViewById(R.id.t1_LL1_tv1);
-//				tv.setText(selected);
-				tv.setText(MyLib.generatePassword());
+				tv.setText(String.valueOf(which));
+				tv.setText(MyLib.generatePassword(which));
+//				tv.setText(MyLib.generatePassword(0));
+////				tv.setText(selected);
+//				tv.setText("which number=" 
+//									+ String.valueOf(which)
+//									+ "\n"
+//									+ items[which]);
+//				tv.setText(MyLib.generatePassword());
 //				tv.setText(MyLib.generatePassword(MyLib.PwdTypes.ALPHA));
 //				tv.setText(selected + "/" + "whichButton=" + String.valueOf(whichButton));
 				

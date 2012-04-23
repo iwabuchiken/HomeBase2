@@ -60,18 +60,38 @@ public class MyLib {
 	}//generatePassword()
 
 	// generate a password
-	public static String generatePassword(PwdTypes pwdType) {
+	public static String generatePassword(int type) {
 		
 		// StringBuilder
 		StringBuilder sb = new StringBuilder();
 		
 		// get chars
 		Random rd;
-		int judge;
 		
-		for (int i = 0; i < 5; i++) {
-			// instance
-			rd = new Random((long) (Math.random()*1000000));
+//		// flag for types
+//		int judge;
+		
+		// build a string
+		
+		// switching
+		if (type == 0) {		// alphabets only
+			for (int i = 0; i < 5; i++) {
+				rd = new Random((long) (Math.random()*1000000));
+				sb.append(charSource.charAt(rd.nextInt(charSource.length())));
+			}//for (int i = 0; i < 5; i++)
+		} else if (type == 1){	// numbers only
+//			for (int i = 0; i < 5; i++) {
+//				rd = new Random((long) (Math.random()*1000000));
+//				sb.append(charSource.charAt(rd.nextInt(charSource.length())));
+//			}//for (int i = 0; i < 5; i++)
+		} else if (type == 2){	// mixture
+			sb.append("Sorry. Not yet prepared for this choice!");
+		}//if (type == 0)
+		
+		
+//		for (int i = 0; i < 5; i++) {
+//			// instance
+//			rd = new Random((long) (Math.random()*1000000));
 			
 //			// alphabet or number ?
 //			judge = rd.nextInt(2);
@@ -84,9 +104,9 @@ public class MyLib {
 //			}//if (judge == 0)
 //			
 			
-			// get a char
-			sb.append(charSource.charAt(rd.nextInt(charSource.length())));
-		}//for (int i = 0; i < array.length; i++)
+//			// get a char
+//			sb.append(charSource.charAt(rd.nextInt(charSource.length())));
+//		}//for (int i = 0; i < array.length; i++)
 		
 		// get a string		
 		
