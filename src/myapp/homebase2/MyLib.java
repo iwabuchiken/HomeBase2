@@ -66,7 +66,8 @@ public class MyLib {
 		StringBuilder sb = new StringBuilder();
 		
 		// Random
-		Random rd;			/* used to pick up a char							*/
+		Random rd =		/* used to pick up a char							*/
+				new Random((long) (Math.random()*1000000));
 		Random rd2 =		/* used as a flag for chars and numbers	*/
 				new Random((long) (Math.random()*1000000));
 		/*
@@ -76,13 +77,13 @@ public class MyLib {
 		// switching
 		if (type == 0) {							// alphabets only
 			for (int i = 0; i < 5; i++) {
-				rd = new Random((long) (Math.random()*1000000));
+//				rd = new Random((long) (Math.random()*1000000));
 				sb.append(charSource.charAt(rd.nextInt(charSource.length())));
 			}//for (int i = 0; i < 5; i++)
 			
 		} else if (type == 1){					// numbers only
 			for (int i = 0; i < 5; i++) {
-				rd = new Random((long) (Math.random()*1000000));
+//				rd = new Random((long) (Math.random()*1000000));
 				sb.append(String.valueOf(rd.nextInt(10)));
 			}//for (int i = 0; i < 5; i++)
 			
@@ -92,11 +93,11 @@ public class MyLib {
 				int flag = rd2.nextInt(2);
 				switch (flag) {
 					case 0:
-						rd = new Random((long) (Math.random()*1000000));
+//						rd = new Random((long) (Math.random()*1000000));
 						sb.append(charSource.charAt(rd.nextInt(charSource.length())));
 						break;
 					case 1:
-						rd = new Random((long) (Math.random()*1000000));
+//						rd = new Random((long) (Math.random()*1000000));
 						sb.append(String.valueOf(rd.nextInt(10)));
 						break;
 					default:
