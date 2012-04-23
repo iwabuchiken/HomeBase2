@@ -84,22 +84,11 @@ public class ButtonClickListener implements OnClickListener {
 			
 			public void onClick(DialogInterface dialog, int whichButton) {
 				// TODO 自動生成されたメソッド・スタブ
-				// get the selected item
-//				String selected = items[which];
-				
-				// set text
+				// get a  text view
 				TextView tv = (TextView) context.findViewById(R.id.t1_LL1_tv1);
-				tv.setText(String.valueOf(which));
+
+				// set text
 				tv.setText(MyLib.generatePassword(which));
-//				tv.setText(MyLib.generatePassword(0));
-////				tv.setText(selected);
-//				tv.setText("which number=" 
-//									+ String.valueOf(which)
-//									+ "\n"
-//									+ items[which]);
-//				tv.setText(MyLib.generatePassword());
-//				tv.setText(MyLib.generatePassword(MyLib.PwdTypes.ALPHA));
-//				tv.setText(selected + "/" + "whichButton=" + String.valueOf(whichButton));
 				
 			}//public void onClick()
 		});//dialog.setPositiveButton()

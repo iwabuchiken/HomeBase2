@@ -65,13 +65,12 @@ public class MyLib {
 		// StringBuilder
 		StringBuilder sb = new StringBuilder();
 		
-		// get chars
+		// Random
 		Random rd;
 		
-//		// flag for types
-//		int judge;
-		
-		// build a string
+		/*
+		 *  build a string
+		 */
 		
 		// switching
 		if (type == 0) {		// alphabets only
@@ -80,10 +79,10 @@ public class MyLib {
 				sb.append(charSource.charAt(rd.nextInt(charSource.length())));
 			}//for (int i = 0; i < 5; i++)
 		} else if (type == 1){	// numbers only
-//			for (int i = 0; i < 5; i++) {
-//				rd = new Random((long) (Math.random()*1000000));
-//				sb.append(charSource.charAt(rd.nextInt(charSource.length())));
-//			}//for (int i = 0; i < 5; i++)
+			for (int i = 0; i < 5; i++) {
+				rd = new Random((long) (Math.random()*1000000));
+				sb.append(String.valueOf(rd.nextInt(10)));
+			}//for (int i = 0; i < 5; i++)
 		} else if (type == 2){	// mixture
 			sb.append("Sorry. Not yet prepared for this choice!");
 		}//if (type == 0)
