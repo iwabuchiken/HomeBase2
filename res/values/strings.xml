@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, HomeBase2Activity!</string>
+    <string name="app_name">HomeBase2</string>
+
+    <string name="tab1_LL1_btn1">Generate password</string>
+    <string name="t2_LL1_btn1">What shall i do?</string>
+    <string name="exec_btn">What shall i do?</string>
+    <string name="default_text">More to come!!</string>
+    <string name="tv_size_1">200sp</string>
+    
+</resources>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+<!-- LinearLayout 1 -->
+
+    <LinearLayout
+        android:id="@+id/tab1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/tab1_LL1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center" >
+
+                <Button
+                    android:id="@+id/t1_LL1_btn1"
+                    android:layout_width="150sp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tab1_LL1_btn1" />
+
+                <TextView
+                    android:id="@+id/t1_LL1_tv1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="20sp"
+                    android:text="Generate a password"
+                    android:textSize="25sp" />
+
+        	</LinearLayout>	        	        
+	    </LinearLayout>
+
+<!-- LinearLayout 2 -->
+
+    <LinearLayout
+        android:id="@+id/tab2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/tab2_LL1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/t2_LL1_btn1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/exec_btn" />
+
+            <TextView
+                android:id="@+id/t2_LL1_tv1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/default_text" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+<!-- LinearLayout 3 -->
+
+    <LinearLayout
+        android:id="@+id/tab3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/tab3_LL1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/t3_LL1_btn1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/exec_btn" />
+
+            <TextView
+                android:id="@+id/t3_LL1_tv1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/default_text" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>
