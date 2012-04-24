@@ -34,8 +34,34 @@
                     android:text="Generate a password"
                     android:textSize="25sp" />
 
-        	</LinearLayout>	        	        
-	    </LinearLayout>
+        	</LinearLayout><!-- tab1_LL1 -->
+        	
+        	<LinearLayout
+                android:id="@+id/tab1_LL2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10sp"
+                android:layout_marginTop="20sp" >
+
+                <Button
+                    android:id="@+id/t1_LL2_btn1"
+                    android:layout_width="150sp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tab1_LL2_btn1" />
+
+                <TextView
+                    android:id="@+id/t1_LL2_tv1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="20sp"
+                    android:text="Generate a password"
+                    android:textSize="25sp" />
+
+        	</LinearLayout><!-- tab1_LL2 -->
+        	
+	    </LinearLayout><!-- tab1 -->
 
 <!-- LinearLayout 2 -->
 
@@ -63,9 +89,9 @@
                 android:layout_height="wrap_content"
                 android:text="@string/default_text" />
 
-        </LinearLayout>
-
-    </LinearLayout>
+        </LinearLayout><!-- tab2_LL1 --><!-- tab2_LL2 -->
+        
+    </LinearLayout><!-- tab2 -->
 
 <!-- LinearLayout 3 -->
 
@@ -93,8 +119,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/default_text" />
 
-        </LinearLayout>
+        </LinearLayout><!-- tab3_LL1 --><!-- tab3_LL2 -->
 
-    </LinearLayout>
+    </LinearLayout><!-- tab3 -->
 
 </FrameLayout>
