@@ -31,18 +31,7 @@ public class ButtonClickListener implements OnClickListener {
 	
 	// chosen length for "Length" button
 	int chosenLength = -1;		/* default is 0		*/
-	
-//	// chosen length for "Length" button
-//	int chosenLength = 0;		/* default is 0		*/
-	
-//	// Password types
-//	enum PasswdType {
-//		ALPHA, NUM, ALNUM
-//	}
-	
-//	// Chosen type => default is ALPHA
-//	PasswdType chosenType = PasswdType.ALPHA;
-	
+
 	public ButtonClickListener(HomeBase2Activity context) {
 		// TODO 自動生成されたコンストラクター・スタブ
 		this.context = context;
@@ -84,12 +73,7 @@ public class ButtonClickListener implements OnClickListener {
 		 dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 			
 			public void onClick(DialogInterface dialog, int whichButton) {
-//				// debug
-//				Toast.makeText(context, 
-//						"chosenLength=" + String.valueOf(chosenLength)
-//						+ "\n"
-//						+ "lengthItems[chosenLength]=" + lengthItems[chosenLength], 
-//						Toast.LENGTH_LONG).show();
+
 				// set value to the text view
 				TextView tv = (TextView) context.findViewById(R.id.t1_LL3_tv1);
 				tv.setText(lengthItems[chosenLength]);
@@ -105,30 +89,9 @@ public class ButtonClickListener implements OnClickListener {
 	/* setType()
 	 * 
 	 */
-//	// Chosen item
-//	int chosenItem = -1;
-//	
-//	// chosen length for "Length" button
-//	int chosenLength = -1;		/* default is 0		*/
-	
-//	// Choices
-//	final String[] typeItems = new String[]{
-//			"Alphabets only",
-//			"Numbers only",
-//			"Mixture"
-//	};//final String[] items
-			
+
 	private void setType() {
-//		// Choices
-//		final String[] items = new String[]{
-//				"Alphabets only",
-//				"Numbers only",
-//				"Mixture"
-//		};//final String[] items
-		
-//		// Chosen item
-//		int chosenItem = 0;
-		
+
 		// define a dialog
 		 AlertDialog.Builder dialog	= new AlertDialog.Builder(context);
 		 
@@ -148,13 +111,7 @@ public class ButtonClickListener implements OnClickListener {
 		 dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 			
 			public void onClick(DialogInterface dialog, int whichButton) {
-//				// debug
-//				Toast.makeText(context, 
-//						String.valueOf(chosenType)
-//						+ "\n"
-//						+ "typeItems[chosenType]=" + typeItems[chosenType], 
-//						Toast.LENGTH_LONG).show();
-				
+
 				// set value to the text view
 				TextView tv = (TextView) context.findViewById(R.id.t1_LL2_tv1);
 				tv.setText(typeItems[chosenType]);
@@ -177,12 +134,7 @@ public class ButtonClickListener implements OnClickListener {
 	 * "Numbers only"	=> MyLib.PwdTypes.NUM = 1
 	 * "Mixture"	=> MyLib.PwdTypes.ALNUM = 2
 	 */
-//	final String[] typeItems	= new String[]{
-//			"Alphabets only",
-//			"Numbers only",
-//			"Mixture"
-//	};
-	
+
 	final String[] lengths	= new String[]{
 			"5", "7", "10"
 	};
@@ -198,67 +150,30 @@ public class ButtonClickListener implements OnClickListener {
 		
 		// Type items already chosen?
 		if (chosenType == -1) {
-			setType();
+			//debug
+			chosenType = 0;
+//			setType();
 		} 
 		
 		// Length items already chosen?
 		if (chosenLength == -1) {//if (chosenType == -1)
-			setLength();
+			//debug
+			chosenLength = 0;
+//			setLength();
 		}//if (chosenType == -1)
 		
 		// get a  text view
 		TextView tv = (TextView) context.findViewById(R.id.t1_LL1_tv1);
 
 		// set text
-//		tv.setText(MyLib.generatePassword(which));
-		tv.setText(MyLib.generatePassword(chosenType, chosenLength));
+
 		
-//		// TODO 自動生成されたメソッド・スタブ
-//		// define a dialog
-//		 AlertDialog.Builder dialog	= new AlertDialog.Builder(context);
-//		 
-////		// selected item id
-////		int which = 0;
-//		 
-//		 // set title
-//		 dialog.setTitle("Generate a password");
-//		 
-//		 // set items: types
-//		 dialog.setSingleChoiceItems(typeItems, 0, new DialogInterface.OnClickListener() {
-//			
-//			public void onClick(DialogInterface dialog, int whichButton) {
-//				// TODO 自動生成されたメソッド・スタブ
-//				which = whichButton;
-//			}//public void onClick(DialogInterface dialog, int which)
-//		 });//dialog.setSingleChoiceItems(typeItems, 0, new DialogInterface.OnClickListener()
-//		 
-//		 //set items: length
-//		 dialog.setSingleChoiceItems(lengths, 0, new DialogInterface.OnClickListener() {
-//				
-//				public void onClick(DialogInterface dialog, int whichButton) {
-//					// TODO 自動生成されたメソッド・スタブ
-//					passwdLength = Integer.parseInt(lengths[whichButton]);
-//				}//public void onClick(DialogInterface dialog, int which)
-//			});//dialog.setSingleChoiceItems(items, 0, new DialogInterface.OnClickListener()
-//		
-//		 // set button
-//		 dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-//			
-//			public void onClick(DialogInterface dialog, int whichButton) {
-//				// TODO 自動生成されたメソッド・スタブ
-//				// get a  text view
-//				TextView tv = (TextView) context.findViewById(R.id.t1_LL1_tv1);
-//
-//				// set text
-////				tv.setText(MyLib.generatePassword(which));
-//				tv.setText(MyLib.generatePassword(which, passwdLength));
-//				
-//			}//public void onClick()
-//		});//dialog.setPositiveButton()
-//		 
-//		 // show dialog		 
-//		 dialog.show();
+		// debug
+		Toast.makeText(context, lengthItems[chosenLength], Toast.LENGTH_LONG).show();
 		
+//		tv.setText(MyLib.generatePassword(chosenType, chosenLength));
+//		tv.setText(MyLib.generatePassword(chosenType, Integer.parseInt(typeItems[chosenLength])));
+
 	}//private void showDialogPassword()
 
 }
