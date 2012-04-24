@@ -1,6 +1,7 @@
 package myapp.homebase2;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -13,11 +14,12 @@ public class ButtonClickListener implements OnClickListener {
 	HomeBase2Activity context;
 
 	// Choices for type
-	final String[] typeItems = new String[]{
-			"Alphabets only",
-			"Numbers only",
-			"Mixture"
-	};//final String[] typeItems
+	static String[] typeItems;
+//	final String[] typeItems = new String[]{
+//			MyLib.getString(context, R.string.txt_t1_LL1_tv1),
+//			"Numbers only",
+//			"Mixture"
+//	};//final String[] typeItems
 
 	// Choices for length
 	final String[] lengthItems = new String[]{
@@ -34,9 +36,23 @@ public class ButtonClickListener implements OnClickListener {
 	// chosen length for "Length" button
 	int chosenLength = -1;		/* default is 0		*/
 
+	//debug
+	private static void setTypeItems(Context context) {
+		typeItems = new String[]{
+			MyLib.getString(context, R.string.password_type_alphabet),
+			MyLib.getString(context, R.string.password_type_number),
+			MyLib.getString(context, R.string.password_type_alnum)
+//			"Numbers only",
+//			"Mixture"
+		};//final String[] typeItems
+	}
+	
 	public ButtonClickListener(HomeBase2Activity context) {
 		// TODO 自動生成されたコンストラクター・スタブ
 		this.context = context;
+		
+		//debug
+		setTypeItems(context);
 	}
 
 	public void onClick(View v) {
@@ -150,52 +166,31 @@ public class ButtonClickListener implements OnClickListener {
 	// method
 	private void showDialogPassword() {
 		
-		// Type items already chosen?
-		if (chosenType == -1) {
-			//debug
-			chosenType = 0;
-//			setType();
-		} 
-		
-		// Length items already chosen?
-		if (chosenLength == -1) {//if (chosenType == -1)
-			//debug
-			chosenLength = 0;
-//			setLength();
-		}//if (chosenType == -1)
-		
 		// get a  text view
-		TextView tv = (TextView) context.findViewById(R.id.t1_LL1_tv1);
+//		TextView tv = (TextView) context.findViewById(R.id.t1_LL1_tv1);
 
-		// set text
-
-		// debug
+		// Get from the text views: type and number
 		TextView tvNumber = (TextView) context.findViewById(R.id.t1_LL3_tv1);
 		TextView tvType = (TextView) context.findViewById(R.id.t1_LL2_tv1);
 		
-		String tempString = null;
-		if (tvType.getText().toString() == MyLib.getString(context, R.string.txt_t1_LL2_tv1)) {
-			tempString = "Please choose the type";
-		} else {//if (tvType.getText().toString() == MyLib.getString(context, R.string.txt_t1_LL2_tv1))
-			tempString = tvType.getText().toString();
-		}//if (tvType.getText().toString() == MyLib.getString(context, R.string.txt_t1_LL2_tv1))
-		
-		
-		Toast.makeText(context, 
-				tempString,
-				Toast.LENGTH_LONG).show();
-		
-//		// debug
-//		TextView tvType = (TextView) context.findViewById(R.id.t1_LL2_tv1);
-//		Toast.makeText(context, 
-//				"R.id.t1_LL2_tv1=" + MyLib.getString(context, R.id.t1_LL2_tv1)
-//				+ "\n"
-//				+ "tvType.getText().toString()=" + tvType.getText().toString(), 
-//				Toast.LENGTH_LONG).show();
-//		Toast.makeText(context, lengthItems[chosenLength], Toast.LENGTH_LONG).show();
-		
-//		tv.setText(MyLib.generatePassword(chosenType, chosenLength));
-//		tv.setText(MyLib.generatePassword(chosenType, Integer.parseInt(typeItems[chosenLength])));
+		String tempMessage = null;
+		// Choices done?
+		if (tvType.getText().toString() == MyLib.getString(context, R.string.txt_t1_LL2_tv1)
+				&& tvNumber.getText().toString() == MyLib.getString(context, R.string.txt_t1_LL3_tv1)) {
+			// set message
+			tempMessage = "Please choose type and number";
+		} else if (tvType.getText().toString() == MyLib.getString(context, R.string.txt_t1_LL2_tv1)) {
+			// set message
+			tempMessage = "Please choose type";
+//			// debug
+//			Toast.makeText(context, "Please choose number", Toast.LENGTH_SHORT).show();
+		} else if (tvNumber.getText().toString() == MyLib.getString(context, R.string.txt_t1_LL3_tv1)) {
+			// set message
+			tempMessage = "Please choose number";
+		}
+
+		// debug
+		Toast.makeText(context, tempMessage, Toast.LENGTH_SHORT).show();
 
 	}//private void showDialogPassword()
 
