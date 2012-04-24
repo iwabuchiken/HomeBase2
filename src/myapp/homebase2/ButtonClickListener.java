@@ -27,9 +27,9 @@ public class ButtonClickListener implements OnClickListener {
 	};//final String[] items
 
 	// Chosen item
-//	int chosenType = -1;
+	int chosenType = -1;
 //	static int chosenType = -1;
-	private static int chosenType = -1;
+//	private static int chosenType = -1;
 	
 	// chosen length for "Length" button
 	int chosenLength = -1;		/* default is 0		*/
@@ -171,7 +171,13 @@ public class ButtonClickListener implements OnClickListener {
 
 		
 		// debug
-		Toast.makeText(context, lengthItems[chosenLength], Toast.LENGTH_LONG).show();
+		TextView tvType = (TextView) context.findViewById(R.id.t1_LL2_tv1);
+		Toast.makeText(context, 
+				"R.id.t1_LL2_tv1=" + MyLib.getString(context, R.id.t1_LL2_tv1)
+				+ "\n"
+				+ "tvType.getText().toString()=" + tvType.getText().toString(), 
+				Toast.LENGTH_LONG).show();
+//		Toast.makeText(context, lengthItems[chosenLength], Toast.LENGTH_LONG).show();
 		
 //		tv.setText(MyLib.generatePassword(chosenType, chosenLength));
 //		tv.setText(MyLib.generatePassword(chosenType, Integer.parseInt(typeItems[chosenLength])));

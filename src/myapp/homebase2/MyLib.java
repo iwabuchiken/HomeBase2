@@ -3,6 +3,8 @@ package myapp.homebase2;
 import java.util.HashMap;
 import java.util.Random;
 
+import android.content.Context;
+
 public class MyLib {
 	//
 	static HashMap<Integer, Integer> tabSet = new HashMap<Integer, Integer>();
@@ -153,4 +155,10 @@ public class MyLib {
 		return sb.toString();
 		
 	}//public static String generatePassword(int type, int passwdLength)
+	
+	// getStringメソッド(メッセージ取得処理)
+	// source=C:\WORKS\WORKSPACES2\Sample\Chapter7\PictureJumpSample\src\jp\co\techfun\picturejump\AppUtil.java
+    public static String getString(Context context, int resId) {
+        return context.getResources().getString(resId);
+    }//public static String getString(Context context, int resId)
 }
