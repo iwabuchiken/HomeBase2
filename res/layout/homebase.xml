@@ -23,6 +23,7 @@
                     android:id="@+id/t1_LL1_btn1"
                     android:layout_width="150sp"
                     android:layout_height="wrap_content"
+                    android:textSize="20sp"
                     android:text="@string/tab1_LL1_btn1" />
 
                 <TextView
@@ -47,9 +48,10 @@
 
                 <Button
                     android:id="@+id/t1_LL2_btn1"
-                    android:layout_width="150sp"
+                    android:layout_width="100sp"
                     android:layout_height="wrap_content"
-                    android:text="@string/tab1_LL2_btn1" />
+                    android:text="@string/tab1_LL2_btn1"
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/t1_LL2_tv1"
@@ -73,9 +75,10 @@
 
                 <Button
                     android:id="@+id/t1_LL3_btn1"
-                    android:layout_width="150sp"
+                    android:layout_width="100sp"
                     android:layout_height="wrap_content"
-                    android:text="@string/tab1_LL3_btn1" />
+                    android:text="@string/tab1_LL3_btn1"
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/t1_LL3_tv1"
