@@ -27,7 +27,9 @@ public class ButtonClickListener implements OnClickListener {
 	};//final String[] items
 
 	// Chosen item
-	int chosenType = -1;
+//	int chosenType = -1;
+//	static int chosenType = -1;
+	private static int chosenType = -1;
 	
 	// chosen length for "Length" button
 	int chosenLength = -1;		/* default is 0		*/
