@@ -173,8 +173,11 @@ public class ButtonClickListener implements OnClickListener {
 		TextView tvNumber = (TextView) context.findViewById(R.id.t1_LL3_tv1);
 		TextView tvType = (TextView) context.findViewById(R.id.t1_LL2_tv1);
 		
-		String tempMessage = null;
 		// Choices done?
+		// message string
+		String tempMessage = null;
+		
+		// judge: if not chosen, then return
 		if (tvType.getText().toString() == MyLib.getString(context, R.string.txt_t1_LL2_tv1)
 				&& tvNumber.getText().toString() == MyLib.getString(context, R.string.txt_t1_LL3_tv1)) {
 			// set message
@@ -188,10 +191,93 @@ public class ButtonClickListener implements OnClickListener {
 			// set message
 			tempMessage = "Please choose number";
 		}
+		
+		if (tempMessage != null) {
+			// debug
+			Toast.makeText(context, tempMessage, Toast.LENGTH_SHORT).show();
+			
+			return;
+		}//if (tempMessage != null)
 
+		// get a  text view: Generate password
+		TextView tvPasswd = (TextView) context.findViewById(R.id.t1_LL1_tv1);
+		
+		// get index of type
+		int tempNum = getArrayIndex(typeItems, tvType.getText().toString());
+		if (tempNum == -1) {
+			tempNum = 0;
+		}//if (tempNum == -1)
+		
 		// debug
-		Toast.makeText(context, tempMessage, Toast.LENGTH_SHORT).show();
+//		tvPasswd.setText(MyLib.generatePassword(
+//				tempNum,
+//				getArrayIndex(typeItems, tvType.getText().toString())) +
+		tvPasswd.setText(
+//				"Number=" + tvNumber.getText().toString() +
+//				"\n" +
+//				"tempNum=" + String.valueOf(tempNum) +
+//				"\n" +
+//				"tvType=" + tvType.getText().toString() +
+////				"\n" +
+////				"typeItems[0]=" + typeItems[0] +
+//				"\n" +
+//				"equals=" + typeItems[0].equals(tvType.getText().toString()) +
+//				"\n" +
+//				"'=='=" + (typeItems[0] == tvType.getText().toString()) +
+//				"\n" +
+//				"get index = " + String.valueOf(getArrayIndex(typeItems, tvType.getText().toString())) +
+//				"Passwd=" + MyLib.generatePassword(
+				MyLib.generatePassword(
+													getArrayIndex(typeItems, tvType.getText().toString()), 
+													Integer.parseInt(tvNumber.getText().toString()))
+//				"tvNumber.getText().toString()=" + tvNumber.getText().toString() +
+//				"\n" +
+//				"tempNum=" + String.valueOf(tempNum) +
+//				"tvType.getText().toString()=" + tvType.getText().toString() +
+//				"\n" +
+//				"typeItems[0]=" + typeItems[0] +
+//				"\n" +
+//				"equals=" + typeItems[0].equals(tvType.getText().toString()) +
+//				"\n" +
+//				"'=='=" + (typeItems[0] == tvType.getText().toString())
+				);
+		
+//		Toast.makeText(context, 
+//				"Password=" + MyLib.generatePassword(
+//					tempNum,
+//	//				getArrayIndex(typeItems, tvType.getText().toString()), 
+//					Integer.parseInt(tvNumber.getText().toString())) +
+//					"\n" +
+//					"tvType.getText().toString()=" + tvType.getText().toString() +
+//					"\n" +
+//					"typeItems[0]=" + typeItems[0], 
+//				Toast.LENGTH_LONG).show();
+		
+		
+		// set text
+//		tvPasswd.setText(
+//				MyLib.generatePassword(
+//						tempNum,
+////						getArrayIndex(typeItems, tvType.getText().toString()), 
+//						Integer.parseInt(tvNumber.getText().toString())));
+		
+		// debug
+//		Toast.makeText(context, "Generate password", Toast.LENGTH_SHORT).show();
+		
+		// debug
+//		Toast.makeText(context, tempMessage, Toast.LENGTH_SHORT).show();
 
 	}//private void showDialogPassword()
+
+	private int getArrayIndex(String[] items, String target) {
+		// 
+		for (int i = 0; i < items.length; i++) {
+//			if (items[i] == target) {
+			if (items[i].equals(target)) {
+				return i;
+			}//if (items[i] == target)
+		}//for (int i = 0; i < items.length; i++)
+		return -1;
+	}
 
 }
