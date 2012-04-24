@@ -1,6 +1,7 @@
 package myapp.homebase2;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Random;
 
 import android.content.Context;
@@ -154,10 +155,13 @@ public class MyLib {
 					}//switch (flag)
 				}//for (int i = 0; i < passwdLength; i++)
 				
-				// judge
-				if (isUniformString(sb.toString()) == false) {
-					isUniform = false;
-				}//if (isUniform)
+				//debug
+				isUniform = false;
+				
+//				//judge
+//				if (isUniformString(sb.toString()) == false) {
+//					isUniform = false;
+//				}//if (isUniform)
 			}//while (!isUniform)
 		}//if (type == 0)
 		
@@ -165,9 +169,25 @@ public class MyLib {
 		
 	}//public static String generatePassword(int type, int passwdLength)
 	
-	private static boolean isUniformString(String targetString) {
-		// TODO 自動生成されたメソッド・スタブ
-		return false;
+	public static boolean isUniformString(String targetString) {
+		// get the type of the first char in the string
+		int firstCharType = Character.getType(targetString.charAt(0));
+		
+		// flag: default => false (assumes the string is not uniform)
+//		boolean isSame = false;
+		
+		// judge
+		for (int i = 1; i < targetString.length(); i++) {
+			if (Character.getType(targetString.charAt(0)) 
+					!= Character.getType(targetString.charAt(i))) {
+				return false;
+			}//if (targetString.charAt(0) != targetString.charAt(i))
+		}//for (int i = 1; i < targetString.length(); i++)
+		
+		/* if the rest of the chars are same as the first one
+		 * 	=> return true (i.e., the string is consisted of the same type of char)
+		 */
+		return true;
 	}
 
 	// getStringメソッド(メッセージ取得処理)

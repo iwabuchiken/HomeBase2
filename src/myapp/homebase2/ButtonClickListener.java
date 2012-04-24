@@ -84,7 +84,10 @@ public class ButtonClickListener implements OnClickListener {
 			
 			public void onClick(DialogInterface dialog, int whichButton) {
 
-				
+				// is item selected?
+				if (chosenLength == -1) {
+					chosenLength = 0;
+				}//if (chosenType == -1)
 				
 				// set value to the text view
 				TextView tv = (TextView) context.findViewById(R.id.t1_LL3_tv1);
@@ -116,6 +119,7 @@ public class ButtonClickListener implements OnClickListener {
 			public void onClick(DialogInterface dialog, int whichButton) {
 				// TODO 自動生成されたメソッド・スタブ
 				chosenType = whichButton;
+				
 			}//public void onClick(DialogInterface dialog, int which)
 		 });//dialog.setSingleChoiceItems(typeItems, 0, new DialogInterface.OnClickListener()
 		
@@ -124,8 +128,15 @@ public class ButtonClickListener implements OnClickListener {
 			
 			public void onClick(DialogInterface dialog, int whichButton) {
 
-				// set value to the text view
+				// is item selected?
+				if (chosenType == -1) {
+					chosenType = 0;
+				}//if (chosenType == -1)
+				
+				// get a view
 				TextView tv = (TextView) context.findViewById(R.id.t1_LL2_tv1);
+				
+				// set value to the text view
 				tv.setText(typeItems[chosenType]);
 				
 			}//public void onClick()
@@ -185,7 +196,10 @@ public class ButtonClickListener implements OnClickListener {
 		}
 		
 		if (tempMessage != null) {
+			// show message
+			Toast.makeText(context, tempMessage, Toast.LENGTH_SHORT).show();
 
+			// return
 			return;
 		}//if (tempMessage != null)
 
@@ -205,13 +219,19 @@ public class ButtonClickListener implements OnClickListener {
 													Integer.parseInt(tvNumber.getText().toString()))
 		);//tvPasswd.setText
 
+//		// debug
+//		Toast.makeText(context, 
+//				"isUniformString=" + 
+//						String.valueOf(MyLib.isUniformString(tvPasswd.getText().toString())), 
+//				Toast.LENGTH_LONG).show();
+		
 		//debug
-		// debug
-		Toast.makeText(context, 
-						"chartAt(0)=" + String.valueOf(tvPasswd.getText().charAt(0)) +
-						"\n" +
-						"isLetter=" + String.valueOf(Character.isLetter(tvPasswd.getText().charAt(0))), 
-						Toast.LENGTH_LONG).show();
+//		// debug
+//		Toast.makeText(context, 
+//						"chartAt(0)=" + String.valueOf(tvPasswd.getText().charAt(0)) +
+//						"\n" +
+//						"isLetter=" + String.valueOf(Character.isLetter(tvPasswd.getText().charAt(0))), 
+//						Toast.LENGTH_LONG).show();
 		
 	}//private void showDialogPassword()
 
