@@ -161,7 +161,10 @@ public class MyLib {
 				//judge
 				if (isUniformString(sb.toString()) == false) {
 					isUniform = false;
-				}//if (isUniform)
+				} else {//if (isUniform)
+					sb = new StringBuilder();
+					sb.append('*');
+				}
 			}//while (!isUniform)
 		}//if (type == 0)
 		
