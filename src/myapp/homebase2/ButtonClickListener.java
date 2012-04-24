@@ -12,6 +12,14 @@ public class ButtonClickListener implements OnClickListener {
 	// instance
 	HomeBase2Activity context;
 	
+//	// Password types
+//	enum PasswdType {
+//		ALPHA, NUM, ALNUM
+//	}
+	
+//	// Chosen type => default is ALPHA
+//	PasswdType chosenType = PasswdType.ALPHA;
+	
 	public ButtonClickListener(HomeBase2Activity context) {
 		// TODO 自動生成されたコンストラクター・スタブ
 		this.context = context;
@@ -25,11 +33,66 @@ public class ButtonClickListener implements OnClickListener {
 		 // switching
 		 if (tag.equals("generatePassword")) {
 			showDialogPassword();
-		} else {//if (tag.equalsIgnoreCase("generatePassword"))
-			
+		} else if (tag.equals("setType")) {//if (tag.equalsIgnoreCase("generatePassword"))
+			setType();
 		}//if (tag.equalsIgnoreCase("generatePassword"))
 
 	}
+
+	/* setType()
+	 * 
+	 */
+	// Chosen item
+	int chosenItem = 0;
+	
+	// Choices
+	final String[] typeItems = new String[]{
+			"Alphabets only",
+			"Numbers only",
+			"Mixture"
+	};//final String[] items
+			
+	private void setType() {
+		// Choices
+		final String[] items = new String[]{
+				"Alphabets only",
+				"Numbers only",
+				"Mixture"
+		};//final String[] items
+		
+//		// Chosen item
+//		int chosenItem = 0;
+		
+		// define a dialog
+		 AlertDialog.Builder dialog	= new AlertDialog.Builder(context);
+		 
+		 // set title
+		 dialog.setTitle("Choose the type");
+		 
+		 // set items: types
+		 dialog.setSingleChoiceItems(items, 0, new DialogInterface.OnClickListener() {
+			
+			public void onClick(DialogInterface dialog, int whichButton) {
+				// TODO 自動生成されたメソッド・スタブ
+				chosenItem = whichButton;
+			}//public void onClick(DialogInterface dialog, int which)
+		 });//dialog.setSingleChoiceItems(items, 0, new DialogInterface.OnClickListener()
+		
+		// set button
+		 dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+			
+			public void onClick(DialogInterface dialog, int whichButton) {
+				// set value to the text view
+				TextView tv = (TextView) context.findViewById(R.id.t1_LL2_tv1);
+				tv.setText(typeItems[chosenItem]);
+				
+			}//public void onClick()
+		 });//dialog.setPositiveButton()
+		 
+		 // show dialog
+		 dialog.show();
+		 
+	}//private void setType()
 
 	/**
 	 * showDialogPassword()
@@ -62,6 +125,9 @@ public class ButtonClickListener implements OnClickListener {
 		// TODO 自動生成されたメソッド・スタブ
 		// define a dialog
 		 AlertDialog.Builder dialog	= new AlertDialog.Builder(context);
+		 
+//		// selected item id
+//		int which = 0;
 		 
 		 // set title
 		 dialog.setTitle("Generate a password");
