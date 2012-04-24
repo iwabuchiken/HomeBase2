@@ -111,17 +111,34 @@
                 android:id="@+id/t2_LL1_btn1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/exec_btn" />
+                android:text="@string/t2_LL1_btn1" />
 
-            <TextView
-                android:id="@+id/t2_LL1_tv1"
+            <Button
+                android:id="@+id/t2_LL1_btn2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="@string/default_text" />
+                android:text="@string/t2_LL1_btn2" />
 
         </LinearLayout><!-- tab2_LL1 --><!-- tab2_LL2 -->
-        
+
+		<LinearLayout 
+		    android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+		    >
+		    
+			<!-- 画像 -->
+		      <ImageView
+					android:layout_width="match_parent"
+				  	android:layout_height="wrap_content"
+					android:id="@+id/t2_iv"
+					android:background="@drawable/border"
+					android:layout_margin="3dp"
+					android:maxWidth="190dp"
+					android:maxHeight="190dp"
+					android:minWidth="190dp"
+					android:minHeight="190dp" />
+		    
+		</LinearLayout>        
     </LinearLayout><!-- tab2 -->
 
 <!-- LinearLayout 3 -->

@@ -21,7 +21,8 @@
 	<string name="password_type_alnum">Mixture</string>
     
 <!-- Tab 2     -->
-    <string name="t2_LL1_btn1">What shall i do?</string>
+    <string name="t2_LL1_btn1">Choose file</string>
+    <string name="t2_LL1_btn2">Upload file</string>
 		
 <!-- Global -->
     <string name="exec_btn">What shall i do?</string>
