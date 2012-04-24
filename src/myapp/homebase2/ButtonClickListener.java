@@ -8,6 +8,8 @@ import android.view.View.OnClickListener;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.lang.Character;
+
 public class ButtonClickListener implements OnClickListener {
 
 	// instance
@@ -82,6 +84,8 @@ public class ButtonClickListener implements OnClickListener {
 			
 			public void onClick(DialogInterface dialog, int whichButton) {
 
+				
+				
 				// set value to the text view
 				TextView tv = (TextView) context.findViewById(R.id.t1_LL3_tv1);
 				tv.setText(lengthItems[chosenLength]);
@@ -194,16 +198,21 @@ public class ButtonClickListener implements OnClickListener {
 			tempNum = 0;
 		}//if (tempNum == -1)
 
+		// set text
 		tvPasswd.setText(
-
 				MyLib.generatePassword(
 													getArrayIndex(typeItems, tvType.getText().toString()), 
 													Integer.parseInt(tvNumber.getText().toString()))
+		);//tvPasswd.setText
 
-				);
-
-		// set text
-
+		//debug
+		// debug
+		Toast.makeText(context, 
+						"chartAt(0)=" + String.valueOf(tvPasswd.getText().charAt(0)) +
+						"\n" +
+						"isLetter=" + String.valueOf(Character.isLetter(tvPasswd.getText().charAt(0))), 
+						Toast.LENGTH_LONG).show();
+		
 	}//private void showDialogPassword()
 
 	private int getArrayIndex(String[] items, String target) {
