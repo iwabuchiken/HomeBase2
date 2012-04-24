@@ -47,8 +47,15 @@ public class ButtonClickListener implements OnClickListener {
 			"Mixture"
 	};
 	
+	final String[] lengths	= new String[]{
+			"5", "7", "10"
+	};
+	
 	// selected item id
 	int which = 0;
+	
+	// password length
+	int passwdLength = 5;		/* default length is 5		*/
 	
 	// method
 	private void showDialogPassword() {
@@ -59,14 +66,23 @@ public class ButtonClickListener implements OnClickListener {
 		 // set title
 		 dialog.setTitle("Generate a password");
 		 
-		 // set items
+		 // set items: types
 		 dialog.setSingleChoiceItems(items, 0, new DialogInterface.OnClickListener() {
 			
 			public void onClick(DialogInterface dialog, int whichButton) {
 				// TODO 自動生成されたメソッド・スタブ
 				which = whichButton;
 			}//public void onClick(DialogInterface dialog, int which)
-		});//dialog.setSingleChoiceItems(items, 0, new DialogInterface.OnClickListener()
+		 });//dialog.setSingleChoiceItems(items, 0, new DialogInterface.OnClickListener()
+		 
+		 //set items: length
+		 dialog.setSingleChoiceItems(lengths, 0, new DialogInterface.OnClickListener() {
+				
+				public void onClick(DialogInterface dialog, int whichButton) {
+					// TODO 自動生成されたメソッド・スタブ
+					passwdLength = Integer.parseInt(lengths[whichButton]);
+				}//public void onClick(DialogInterface dialog, int which)
+			});//dialog.setSingleChoiceItems(items, 0, new DialogInterface.OnClickListener()
 		
 		 // set button
 		 dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -77,7 +93,8 @@ public class ButtonClickListener implements OnClickListener {
 				TextView tv = (TextView) context.findViewById(R.id.t1_LL1_tv1);
 
 				// set text
-				tv.setText(MyLib.generatePassword(which));
+//				tv.setText(MyLib.generatePassword(which));
+				tv.setText(MyLib.generatePassword(which, passwdLength));
 				
 			}//public void onClick()
 		});//dialog.setPositiveButton()

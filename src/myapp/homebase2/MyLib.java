@@ -105,4 +105,52 @@ public class MyLib {
 		return sb.toString();
 		
 	}//generatePassword()
+
+	public static String generatePassword(int type, int passwdLength) {
+		// StringBuilder
+		StringBuilder sb = new StringBuilder();
+		
+		// Random
+		Random rd =		/* used to pick up a char							*/
+				new Random((long) (Math.random()*1000000));
+		Random rd2 =		/* used as a flag for chars and numbers	*/
+				new Random((long) (Math.random()*1000000));
+		/*
+		 *  build a string
+		 */
+
+		// switching
+		if (type == 0) {							// alphabets only
+			
+			for (int i = 0; i < passwdLength; i++) {
+				sb.append(charSource.charAt(rd.nextInt(charSource.length())));
+			}//for (int i = 0; i < passwdLength; i++)
+			
+		} else if (type == 1){					// numbers only
+			
+			for (int i = 0; i < passwdLength; i++) {
+				sb.append(String.valueOf(rd.nextInt(10)));
+			}//for (int i = 0; i < passwdLength; i++)
+			
+		} else if (type == 2){					// mixture
+			
+			for (int i = 0; i < passwdLength; i++) {
+				int flag = rd2.nextInt(2);
+				switch (flag) {
+					case 0:
+						sb.append(charSource.charAt(rd.nextInt(charSource.length())));
+						break;
+					case 1:
+						sb.append(String.valueOf(rd.nextInt(10)));
+						break;
+					default:
+						break;
+				}//switch (flag)
+			}//for (int i = 0; i < passwdLength; i++)
+			
+		}//if (type == 0)
+		
+		return sb.toString();
+		
+	}//public static String generatePassword(int type, int passwdLength)
 }
