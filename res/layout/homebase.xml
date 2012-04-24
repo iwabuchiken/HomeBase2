@@ -36,6 +36,7 @@
 
         	</LinearLayout><!-- tab1_LL1 -->
         	
+        	<!-- tab1_LL2 -->
         	<LinearLayout
                 android:id="@+id/tab1_LL2"
                 android:layout_width="match_parent"
@@ -56,10 +57,36 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginLeft="20sp"
-                    android:text="Generate a password"
+                    android:text="@string/txt_t1_LL2_tv1"
                     android:textSize="25sp" />
 
         	</LinearLayout><!-- tab1_LL2 -->
+
+        	<!-- tab1_LL3 -->
+        	<LinearLayout
+                android:id="@+id/tab1_LL3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10sp"
+                android:layout_marginTop="20sp" >
+
+                <Button
+                    android:id="@+id/t1_LL3_btn1"
+                    android:layout_width="150sp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tab1_LL3_btn1" />
+
+                <TextView
+                    android:id="@+id/t1_LL3_tv1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="20sp"
+                    android:text="@string/txt_t1_LL3_tv1"
+                    android:textSize="25sp" />
+
+        	</LinearLayout><!-- tab1_LL3 -->
         	
 	    </LinearLayout><!-- tab1 -->
 
@@ -82,11 +109,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/exec_btn" />
-
+
             <TextView
                 android:id="@+id/t2_LL1_tv1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:text="@string/default_text" />
 
         </LinearLayout><!-- tab2_LL1 --><!-- tab2_LL2 -->

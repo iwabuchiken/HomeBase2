@@ -4,10 +4,17 @@
     <string name="hello">Hello World, HomeBase2Activity!</string>
     <string name="app_name">HomeBase2</string>
 
-    <string name="tab1_LL1_btn1">Generate password</string>
+<!-- Tab 1 -->
+    <string name="tab1_LL1_btn1">Generate</string>
     <string name="tab1_LL2_btn1">Type</string>
+    <string name="txt_t1_LL2_tv1">Set type</string>
+    <string name="tab1_LL3_btn1">Length</string>
+    <string name="txt_t1_LL3_tv1">Set length</string>
     
+<!-- Tab 2     -->
     <string name="t2_LL1_btn1">What shall i do?</string>
+		
+<!-- Global -->
     <string name="exec_btn">What shall i do?</string>
     <string name="default_text">More to come!!</string>
     <string name="tv_size_1">200sp</string>
