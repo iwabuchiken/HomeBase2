@@ -5,11 +5,20 @@
     <string name="app_name">HomeBase2</string>
 
 <!-- Tab 1 -->
+	<!-- Button labels -->
     <string name="tab1_LL1_btn1">Generate</string>
     <string name="tab1_LL2_btn1">Type</string>
-    <string name="txt_t1_LL2_tv1">Set type</string>
     <string name="tab1_LL3_btn1">Length</string>
+    
+	<!-- TextView labels -->
+	<string name="txt_t1_LL1_tv1">Generate a password</string>
+    <string name="txt_t1_LL2_tv1">Set type</string>
     <string name="txt_t1_LL3_tv1">Set length</string>
+    
+	<!-- Selection items: Type -->
+	<string name="password_type_alphabet">Alphabets only</string>
+	<string name="password_type_number">Numbers only</string>
+	<string name="password_type_alnum">Mixture</string>
     
 <!-- Tab 2     -->
     <string name="t2_LL1_btn1">What shall i do?</string>

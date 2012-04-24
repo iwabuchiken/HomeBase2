@@ -169,14 +169,29 @@ public class ButtonClickListener implements OnClickListener {
 
 		// set text
 
-		
 		// debug
+		TextView tvNumber = (TextView) context.findViewById(R.id.t1_LL3_tv1);
 		TextView tvType = (TextView) context.findViewById(R.id.t1_LL2_tv1);
 		Toast.makeText(context, 
-				"R.id.t1_LL2_tv1=" + MyLib.getString(context, R.id.t1_LL2_tv1)
-				+ "\n"
-				+ "tvType.getText().toString()=" + tvType.getText().toString(), 
+//				"R.id.t1_LL2_tv1=" + MyLib.getString(context, R.id.t1_LL2_tv1)
+//				+ "\n" +
+				"R.string.password_type_alnum=" +
+				MyLib.getString(context, R.string.password_type_alnum) +
+				"\n" +
+				"Chose type = " +
+				"Chosen type = " +
+				tvType.getText().toString() +
+				"\n" +
+				"tvNumber.getText().toString()=" + tvNumber.getText().toString(), 
 				Toast.LENGTH_LONG).show();
+		
+//		// debug
+//		TextView tvType = (TextView) context.findViewById(R.id.t1_LL2_tv1);
+//		Toast.makeText(context, 
+//				"R.id.t1_LL2_tv1=" + MyLib.getString(context, R.id.t1_LL2_tv1)
+//				+ "\n"
+//				+ "tvType.getText().toString()=" + tvType.getText().toString(), 
+//				Toast.LENGTH_LONG).show();
 //		Toast.makeText(context, lengthItems[chosenLength], Toast.LENGTH_LONG).show();
 		
 //		tv.setText(MyLib.generatePassword(chosenType, chosenLength));
