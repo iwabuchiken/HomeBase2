@@ -172,17 +172,17 @@ public class ButtonClickListener implements OnClickListener {
 		// debug
 		TextView tvNumber = (TextView) context.findViewById(R.id.t1_LL3_tv1);
 		TextView tvType = (TextView) context.findViewById(R.id.t1_LL2_tv1);
+		
+		String tempString = null;
+		if (tvType.getText().toString() == MyLib.getString(context, R.string.txt_t1_LL2_tv1)) {
+			tempString = "Please choose the type";
+		} else {//if (tvType.getText().toString() == MyLib.getString(context, R.string.txt_t1_LL2_tv1))
+			tempString = tvType.getText().toString();
+		}//if (tvType.getText().toString() == MyLib.getString(context, R.string.txt_t1_LL2_tv1))
+		
+		
 		Toast.makeText(context, 
-//				"R.id.t1_LL2_tv1=" + MyLib.getString(context, R.id.t1_LL2_tv1)
-//				+ "\n" +
-				"R.string.password_type_alnum=" +
-				MyLib.getString(context, R.string.password_type_alnum) +
-				"\n" +
-				"Chose type = " +
-				"Chosen type = " +
-				tvType.getText().toString() +
-				"\n" +
-				"tvNumber.getText().toString()=" + tvNumber.getText().toString(), 
+				tempString,
 				Toast.LENGTH_LONG).show();
 		
 //		// debug
