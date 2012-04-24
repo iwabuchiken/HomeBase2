@@ -163,7 +163,7 @@ public class MyLib {
 					isUniform = false;
 				} else {//if (isUniform)
 					sb = new StringBuilder();
-					sb.append('*');
+//					sb.append('*');
 				}
 			}//while (!isUniform)
 		}//if (type == 0)
