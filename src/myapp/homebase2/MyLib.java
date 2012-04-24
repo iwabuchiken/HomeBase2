@@ -155,13 +155,13 @@ public class MyLib {
 					}//switch (flag)
 				}//for (int i = 0; i < passwdLength; i++)
 				
-				//debug
-				isUniform = false;
+//				//debug
+//				isUniform = false;
 				
-//				//judge
-//				if (isUniformString(sb.toString()) == false) {
-//					isUniform = false;
-//				}//if (isUniform)
+				//judge
+				if (isUniformString(sb.toString()) == false) {
+					isUniform = false;
+				}//if (isUniform)
 			}//while (!isUniform)
 		}//if (type == 0)
 		
