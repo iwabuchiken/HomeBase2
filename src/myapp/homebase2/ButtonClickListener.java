@@ -11,6 +11,23 @@ public class ButtonClickListener implements OnClickListener {
 
 	// instance
 	HomeBase2Activity context;
+
+	// Choices for type
+	final String[] typeItems = new String[]{
+			"Alphabets only",
+			"Numbers only",
+			"Mixture"
+	};//final String[] items
+
+	// Choices for length
+	final String[] lengthItems = new String[]{
+			"5",
+			"7",
+			"10"
+	};//final String[] items
+
+	// chosen length for "Length" button
+	int chosenLength = 0;		/* default is 0		*/
 	
 //	// Password types
 //	enum PasswdType {
@@ -35,9 +52,43 @@ public class ButtonClickListener implements OnClickListener {
 			showDialogPassword();
 		} else if (tag.equals("setType")) {//if (tag.equalsIgnoreCase("generatePassword"))
 			setType();
+		} else if (tag.equals("setLength")) {//if (tag.equalsIgnoreCase("generatePassword"))
+			setLength();
 		}//if (tag.equalsIgnoreCase("generatePassword"))
 
 	}
+
+	private void setLength() {
+		// define a dialog
+		 AlertDialog.Builder dialog	= new AlertDialog.Builder(context);
+		 
+		 // set title
+		 dialog.setTitle("Choose the length");
+		 
+		 // set items: types
+		 dialog.setSingleChoiceItems(lengthItems, 0, new DialogInterface.OnClickListener() {
+			
+			public void onClick(DialogInterface dialog, int whichButton) {
+				// TODO 自動生成されたメソッド・スタブ
+				chosenLength = whichButton;
+			}//public void onClick(DialogInterface dialog, int which)
+		 });//dialog.setSingleChoiceItems(items, 0, new DialogInterface.OnClickListener()
+		
+		// set button
+		 dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+			
+			public void onClick(DialogInterface dialog, int whichButton) {
+				// set value to the text view
+				TextView tv = (TextView) context.findViewById(R.id.t1_LL3_tv1);
+				tv.setText(lengthItems[chosenLength]);
+				
+			}//public void onClick()
+		 });//dialog.setPositiveButton()
+		 
+		 // show dialog
+		 dialog.show();
+		
+	}//private void setLength()
 
 	/* setType()
 	 * 
@@ -45,12 +96,12 @@ public class ButtonClickListener implements OnClickListener {
 	// Chosen item
 	int chosenItem = 0;
 	
-	// Choices
-	final String[] typeItems = new String[]{
-			"Alphabets only",
-			"Numbers only",
-			"Mixture"
-	};//final String[] items
+//	// Choices
+//	final String[] typeItems = new String[]{
+//			"Alphabets only",
+//			"Numbers only",
+//			"Mixture"
+//	};//final String[] items
 			
 	private void setType() {
 		// Choices

@@ -23,5 +23,10 @@ public class HomeBase2Activity extends TabActivity {
         Button t1_LL2_btn1 = (Button) findViewById(R.id.t1_LL2_btn1);
         t1_LL2_btn1.setTag("setType");
         t1_LL2_btn1.setOnClickListener(new ButtonClickListener(this));
+        
+        // Set a listener to the button: Type
+        Button t1_LL3_btn1 = (Button) findViewById(R.id.t1_LL3_btn1);
+        t1_LL3_btn1.setTag("setLength");
+        t1_LL3_btn1.setOnClickListener(new ButtonClickListener(this));
     }
 }
