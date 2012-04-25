@@ -10,6 +10,13 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class HomeBase2Activity extends TabActivity {
+	
+	/* Request codes
+	 * 
+	 */
+	// Gallery
+	private static final int REQUEST_CODE_GALLARY = 0;
+	
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -45,7 +52,7 @@ public class HomeBase2Activity extends TabActivity {
         t2_LL1_btn1.setTag("choseFiles");
         t2_LL1_btn1.setOnClickListener(new OnClickListener(){
 
-			private static final int REQUEST_CODE_GALLARY = 0;
+//			private static final int REQUEST_CODE_GALLARY = 0;
 
 			public void onClick(View v) {
 				// インテント生成
@@ -81,13 +88,32 @@ public class HomeBase2Activity extends TabActivity {
     // onActivityResultメソッド(画面再表示時イベント)
  	@Override
  	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
- 		// debug
-		Toast.makeText(HomeBase2Activity.this, 
-						"resultCode=" + String.valueOf(resultCode) +
-						"\n" +
-						"RESULT_OK=" + String.valueOf(RESULT_OK) +
-						"\n" +
-						"(resultCode==RESULT_OK) = " + (resultCode == RESULT_OK), 
-						Toast.LENGTH_LONG).show();
+ 			// 処理結果がOKの場合、処理終了
+ 			if (resultCode != RESULT_OK) {
+ 				// show message
+				Toast.makeText(HomeBase2Activity.this, 
+								"resultCode=" + String.valueOf(resultCode), 
+								Toast.LENGTH_LONG).show();
+ 				return;
+ 			}
+ 			
+ 			// requestCode is REQUEST_CODE_GALLARY
+ 			if (requestCode == REQUEST_CODE_GALLARY) {
+ 				// debug
+				Toast.makeText(HomeBase2Activity.this, 
+								"requestCode=" + String.valueOf(requestCode) +
+								"\n" +
+								"data=" + data.toString(), 
+								Toast.LENGTH_LONG).show();
+ 			}//if (requestCode == REQUEST_CODE_GALLARY)
+ 			
+// 		// debug
+//		Toast.makeText(HomeBase2Activity.this, 
+//						"resultCode=" + String.valueOf(resultCode) +
+//						"\n" +
+//						"RESULT_OK=" + String.valueOf(RESULT_OK) +
+//						"\n" +
+//						"(resultCode==RESULT_OK) = " + (resultCode == RESULT_OK), 
+//						Toast.LENGTH_LONG).show();
  	}
 }

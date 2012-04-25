@@ -104,7 +104,7 @@
         <LinearLayout
             android:id="@+id/tab2_LL1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal" >
 
             <Button
@@ -120,6 +120,21 @@
                 android:text="@string/t2_LL1_btn2" />
 
         </LinearLayout><!-- tab2_LL1 --><!-- tab2_LL2 -->
+
+        <LinearLayout
+            android:id="@+id/t2_LL_TEMP_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/t2_LL_TEMP1_tv1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                
+                android:text="Temporary view" />
+
+        </LinearLayout>
 
 		<LinearLayout 
 		    android:layout_width="match_parent"
@@ -138,7 +153,8 @@
 					android:minWidth="190dp"
 					android:minHeight="190dp" />
 		    
-		</LinearLayout>        
+		</LinearLayout>
+        
     </LinearLayout><!-- tab2 -->
 
 <!-- LinearLayout 3 -->

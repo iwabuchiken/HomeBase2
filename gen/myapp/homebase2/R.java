@@ -23,17 +23,19 @@ public final class R {
         public static final int t1_LL3_tv1=0x7f050009;
         public static final int t2_LL1_btn1=0x7f05000c;
         public static final int t2_LL1_btn2=0x7f05000d;
-        public static final int t2_iv=0x7f05000e;
-        public static final int t3_LL1_btn1=0x7f050011;
-        public static final int t3_LL1_tv1=0x7f050012;
+        public static final int t2_LL_TEMP1_tv1=0x7f05000f;
+        public static final int t2_LL_TEMP_1=0x7f05000e;
+        public static final int t2_iv=0x7f050010;
+        public static final int t3_LL1_btn1=0x7f050013;
+        public static final int t3_LL1_tv1=0x7f050014;
         public static final int tab1=0x7f050000;
         public static final int tab1_LL1=0x7f050001;
         public static final int tab1_LL2=0x7f050004;
         public static final int tab1_LL3=0x7f050007;
         public static final int tab2=0x7f05000a;
         public static final int tab2_LL1=0x7f05000b;
-        public static final int tab3=0x7f05000f;
-        public static final int tab3_LL1=0x7f050010;
+        public static final int tab3=0x7f050011;
+        public static final int tab3_LL1=0x7f050012;
     }
     public static final class layout {
         public static final int homebase=0x7f030000;
