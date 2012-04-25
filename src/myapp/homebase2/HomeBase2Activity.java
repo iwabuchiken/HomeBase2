@@ -1,12 +1,19 @@
 package myapp.homebase2;
 
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+
 import android.app.Activity;
 import android.app.TabActivity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class HomeBase2Activity extends TabActivity {
@@ -99,12 +106,40 @@ public class HomeBase2Activity extends TabActivity {
  			
  			// requestCode is REQUEST_CODE_GALLARY
  			if (requestCode == REQUEST_CODE_GALLARY) {
- 				// debug
-				Toast.makeText(HomeBase2Activity.this, 
-								"requestCode=" + String.valueOf(requestCode) +
-								"\n" +
-								"data=" + data.toString(), 
-								Toast.LENGTH_LONG).show();
+// 				//debug
+// 				TextView tempView = (TextView) findViewById(R.id.t2_LL_TEMP1_tv1);
+// 				String tempTxt = "data.getData()=" + data.getData().toString(); 
+// 				tempView.setText(tempTxt);
+ 				
+ 				try {
+ 					// open stream
+					InputStream in = getContentResolver().openInputStream(data.getData());
+					
+					//debug
+					TextView tempView = (TextView) findViewById(R.id.t2_LL_TEMP1_tv1);
+					String tempTxt = "in.toString=" + in.toString();
+					tempView.setText(tempTxt);
+					
+					// display image
+//					setPicture(BitmapFactory.decodeStream(in));
+					
+				} catch (FileNotFoundException e) {
+					// TODO 自動生成された catch ブロック
+					Log.e(getClass().getSimpleName(), "get image failed.", e);
+				}
+ 				
+// 				//debug
+// 				TextView tempView = (TextView) findViewById(R.id.t2_LL_TEMP1_tv1);
+// 				String tempTxt = "requestCode=" + String.valueOf(requestCode) +
+//								"\n" +
+//								"data=" + data.toString();
+// 				tempView.setText(tempTxt);
+// 				// debug
+//				Toast.makeText(HomeBase2Activity.this, 
+//								"requestCode=" + String.valueOf(requestCode) +
+//								"\n" +
+//								"data=" + data.toString(), 
+//								Toast.LENGTH_LONG).show();
  			}//if (requestCode == REQUEST_CODE_GALLARY)
  			
 // 		// debug
@@ -116,4 +151,9 @@ public class HomeBase2Activity extends TabActivity {
 //						"(resultCode==RESULT_OK) = " + (resultCode == RESULT_OK), 
 //						Toast.LENGTH_LONG).show();
  	}
+
+	private void setPicture(Bitmap decodeStream) {
+		// TODO 自動生成されたメソッド・スタブ
+		
+	}
 }
