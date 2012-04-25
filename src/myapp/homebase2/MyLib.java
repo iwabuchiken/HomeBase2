@@ -238,34 +238,38 @@ class FTPManager {
 
 	public static String ftpConnect() {
 		// define an FTP object
-		FTPClient fc = new FTPClient();
+//		FTPClient fc = new FTPClient();
+		
+		//debug
+		//7
+		FTPClient fc = new FTPClient("174.132.28.185", "polarbearland@stretch.cawing.info", "FQlRd2;i[77v");
 		
 		// connect
-		try {
-			//debug
-			//6
-			fc.setDefaultPort(21);
-			fc.connect("174.132.28.185");
-			
-//			//5
+//		try {
+//			//debug
+//			//6
 //			fc.setDefaultPort(21);
-//			fc.connect("174.132.28.184");
-			
-//			fc.connect("http://stretch.cawing.info/");
-//			fc.connect("174.132.28.184");	//=> Permission denied
-//			fc.connect("174.132.28.184:2082");	//=> UnknownHostException
-//			fc.connect("ftp.stretch.cawing.info");//=> UnknownHostException
-			return String.valueOf(fc.getReplyCode());
-//			FTPReply.isPositiveCompletion(fc.getReplyCode());
-		} catch (SocketException e) {
-			// TODO 自動生成された catch ブロック
-			e.printStackTrace();
-			return e.toString();
-		} catch (IOException e) {
-			// TODO 自動生成された catch ブロック
-			e.printStackTrace();
-			return e.toString();
-		}
+//			fc.connect("174.132.28.185");
+//			
+////			//5
+////			fc.setDefaultPort(21);
+////			fc.connect("174.132.28.184");
+//			
+////			fc.connect("http://stretch.cawing.info/");
+////			fc.connect("174.132.28.184");	//=> Permission denied
+////			fc.connect("174.132.28.184:2082");	//=> UnknownHostException
+////			fc.connect("ftp.stretch.cawing.info");//=> UnknownHostException
+//			return String.valueOf(fc.getReplyCode());
+////			FTPReply.isPositiveCompletion(fc.getReplyCode());
+//		} catch (SocketException e) {
+//			// TODO 自動生成された catch ブロック
+//			e.printStackTrace();
+//			return e.toString();
+//		} catch (IOException e) {
+//			// TODO 自動生成された catch ブロック
+//			e.printStackTrace();
+//			return e.toString();
+//		}
 		
 	}//ftpConnect()
 //	// INSTANCE
