@@ -61,8 +61,6 @@ public class HomeBase2Activity extends TabActivity {
         t2_LL1_btn1.setTag("choseFiles");
         t2_LL1_btn1.setOnClickListener(new OnClickListener(){
 
-//			private static final int REQUEST_CODE_GALLARY = 0;
-
 			public void onClick(View v) {
 				// インテント生成
 				Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
@@ -73,8 +71,7 @@ public class HomeBase2Activity extends TabActivity {
 						.getString(HomeBase2Activity.this,
 								R.string.picture_select_title)),
 						REQUEST_CODE_GALLARY );
-//				// debug
-//				Toast.makeText(HomeBase2Activity.this, "Choose files", Toast.LENGTH_SHORT).show();
+
 			}
         	
         });//t2_LL1_btn1.setOnClickListener()
@@ -108,20 +105,12 @@ public class HomeBase2Activity extends TabActivity {
  			
  			// requestCode is REQUEST_CODE_GALLARY
  			if (requestCode == REQUEST_CODE_GALLARY) {
-// 				//debug
-// 				TextView tempView = (TextView) findViewById(R.id.t2_LL_TEMP1_tv1);
-// 				String tempTxt = "data.getData()=" + data.getData().toString(); 
-// 				tempView.setText(tempTxt);
+
  				
  				try {
  					// open stream
 					InputStream in = getContentResolver().openInputStream(data.getData());
-					
-//					//debug
-//					TextView tempView = (TextView) findViewById(R.id.t2_LL_TEMP1_tv1);
-//					String tempTxt = "in.toString=" + in.toString();
-//					tempView.setText(tempTxt);
-					
+
 					// display image
 					setPicture(BitmapFactory.decodeStream(in));
 					
@@ -129,29 +118,9 @@ public class HomeBase2Activity extends TabActivity {
 					// TODO 自動生成された catch ブロック
 					Log.e(getClass().getSimpleName(), "get image failed.", e);
 				}
- 				
-// 				//debug
-// 				TextView tempView = (TextView) findViewById(R.id.t2_LL_TEMP1_tv1);
-// 				String tempTxt = "requestCode=" + String.valueOf(requestCode) +
-//								"\n" +
-//								"data=" + data.toString();
-// 				tempView.setText(tempTxt);
-// 				// debug
-//				Toast.makeText(HomeBase2Activity.this, 
-//								"requestCode=" + String.valueOf(requestCode) +
-//								"\n" +
-//								"data=" + data.toString(), 
-//								Toast.LENGTH_LONG).show();
+
  			}//if (requestCode == REQUEST_CODE_GALLARY)
- 			
-// 		// debug
-//		Toast.makeText(HomeBase2Activity.this, 
-//						"resultCode=" + String.valueOf(resultCode) +
-//						"\n" +
-//						"RESULT_OK=" + String.valueOf(RESULT_OK) +
-//						"\n" +
-//						"(resultCode==RESULT_OK) = " + (resultCode == RESULT_OK), 
-//						Toast.LENGTH_LONG).show();
+
  	}
 
 	private void setPicture(Bitmap picture) {
@@ -163,19 +132,6 @@ public class HomeBase2Activity extends TabActivity {
 		
 		// set image
 		imageView.setImageBitmap(MyLib.resizePicture(picture, 180, 180));
-		
-		
-//		//debug
-//		Bitmap tempImage = MyLib.resizePicture(picture, 180, 180);
-//		//debug
-//		TextView tempView = (TextView) findViewById(R.id.t2_LL_TEMP1_tv1);
-//		String tempTxt = "tempImage=" + 
-//							String.valueOf(tempImage.getWidth()) +
-//							" : " + String.valueOf(tempImage.getHeight()) +
-//							"\n" +
-//							"picture=" + String.valueOf(picture.getWidth()) +
-//							" : " + String.valueOf(picture.getHeight());
-//		tempView.setText(tempTxt);
-		
+
 	}
 }
