@@ -1,5 +1,7 @@
 package myapp.homebase2;
 
+import java.io.IOException;
+import java.net.SocketException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Random;
@@ -8,6 +10,9 @@ import java.util.Random;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+
+import org.apache.commons.net.ftp.FTPClient;
+import org.apache.commons.net.ftp.FTPReply;;
 
 public class MyLib {
 	//
@@ -231,6 +236,38 @@ public class MyLib {
 
 class FTPManager {
 
+	public static String ftpConnect() {
+		// define an FTP object
+		FTPClient fc = new FTPClient();
+		
+		// connect
+		try {
+			//debug
+			//6
+			fc.setDefaultPort(21);
+			fc.connect("174.132.28.185");
+			
+//			//5
+//			fc.setDefaultPort(21);
+//			fc.connect("174.132.28.184");
+			
+//			fc.connect("http://stretch.cawing.info/");
+//			fc.connect("174.132.28.184");	//=> Permission denied
+//			fc.connect("174.132.28.184:2082");	//=> UnknownHostException
+//			fc.connect("ftp.stretch.cawing.info");//=> UnknownHostException
+			return String.valueOf(fc.getReplyCode());
+//			FTPReply.isPositiveCompletion(fc.getReplyCode());
+		} catch (SocketException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+			return e.toString();
+		} catch (IOException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+			return e.toString();
+		}
+		
+	}//ftpConnect()
 //	// INSTANCE
 //	private final FTPManager INSTANCE = new FTPManager();
 //	

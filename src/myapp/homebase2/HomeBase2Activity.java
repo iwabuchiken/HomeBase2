@@ -86,6 +86,13 @@ public class HomeBase2Activity extends TabActivity {
 			public void onClick(View v) {
 				// 
 				FTPManager ftpMng = new FTPManager();
+				
+				//debug
+				//debug
+				TextView tempView = (TextView) findViewById(R.id.t2_LL_TEMP1_tv1);
+				String tempTxt = "FTPManager.ftpConnect()=" + FTPManager.ftpConnect();
+				tempView.setText(tempTxt);
+				
 //				// debug
 //				Toast.makeText(HomeBase2Activity.this, "Upload files", Toast.LENGTH_SHORT).show();
 			}
