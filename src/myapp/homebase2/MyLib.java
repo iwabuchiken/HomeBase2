@@ -1,6 +1,7 @@
 package myapp.homebase2;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.SocketException;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -10,6 +11,7 @@ import java.util.Random;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 
 import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPReply;;
@@ -236,6 +238,32 @@ public class MyLib {
 
 class FTPManager {
 
+	/** uploadFiles(FTPClient, InputSteam)
+	 * 
+	 * @param ftpc
+	 * @param in
+	 * @return
+	 * 
+	 */
+	public static String uploadFiles(FTPClient ftpc, InputStream in) {
+//		// store input to remote
+//		try {
+////			ftpc.storeFile("/", in);
+////			ftpc.storeFile("/home/stretchc/public_html", in);
+////			ftpc.storeFile("/home/stretchc/public_html", BitmapFactory.decodeStream(in));
+//			
+//			return "File stored";
+//		} catch (IOException e) {
+//			// TODO é©ìÆê∂ê¨Ç≥ÇÍÇΩ catch ÉuÉçÉbÉN
+////			e.printStackTrace();
+//			return e.toString();
+//		}
+		
+		
+		return null;
+		
+	}//uploadFiles()
+	
 	/*	disconnectFTP()
 	 * 
 	 * <Return>
@@ -254,10 +282,12 @@ class FTPManager {
 		}//try
 	}//disconnectFTP()
 	
-	public static String ftpConnect() {
+	public static String ftpConnect(InputStream in) {
 		// instance of FTPClient
 		FTPClient fc = new FTPClient();
-//		StringBuilder sb = new StringBuilder();
+		
+		// message string
+		StringBuilder sb = new StringBuilder();
 		
 		// set the default port
 		fc.setDefaultPort(21);
@@ -266,20 +296,35 @@ class FTPManager {
 			// connect
 			fc.connect("174.132.28.185");
 			
+			
 			// log in
-			fc.login("polarbearland@stretch.cawing.info", "FQlRd2;i[77v");
+			boolean boolResult = fc.login("polarbearland@stretch.cawing.info", "FQlRd2;i[77v");
+			
+			sb.append(String.valueOf("login=" + boolResult));
+			sb.append("\n");
+			
+			// upload files
+			String stringResult = FTPManager.uploadFiles(fc, in);
+			
+			sb.append("upload=" + stringResult);
+			sb.append("\n");
 			
 			// disconnect
-			int result = FTPManager.disconnectFTP(fc);
+			int intResult = FTPManager.disconnectFTP(fc);
+			
+			sb.append(String.valueOf("disconnect=" + intResult));
+			sb.append("\n");
 			
 			// return
-			if (result == 1) {
-				return "disconnected";
-			} else if (result == -1){//if (result == 1)
-				return "Exception occurred";
-			} else {
-				return "Unknown error";
-			}//if (result == 1)
+			return sb.toString();
+			
+//			if (result == 1) {
+//				return "disconnected";
+//			} else if (result == -1){//if (result == 1)
+//				return "Exception occurred";
+//			} else {
+//				return "Unknown error";
+//			}//if (result == 1)
 			
 						
 //			return sb.toString();
