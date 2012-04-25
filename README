@@ -24,6 +24,9 @@ Release: v=1.0.0
 20120425_143943
 Add version number to the git log: f2_upload-image-files_#5_f3_add-FTPManager_#5-#23
 
+20120425_155904
+Merge to master: f2_upload-image-files_#5
+
 **********************************************
 End of file
 **********************************************
