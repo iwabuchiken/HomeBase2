@@ -20,6 +20,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class HomeBase2Activity extends TabActivity {
+
+	// File input stream
+	InputStream in;
 	
 	/* Request codes
 	 * 
@@ -89,6 +92,11 @@ public class HomeBase2Activity extends TabActivity {
 				uploadBtn.setText("Uploading");
 				uploadBtn.setEnabled(false);
 				
+				//debug
+				// Reset the temp view text
+				TextView tempMessageView = (TextView) findViewById(R.id.t2_LL_TEMP1_tv1);
+				tempMessageView.setText("Temp view");
+				
 				// declare an FTPClient obj
 				FTPManager ftpMng = new FTPManager();
 				
@@ -98,7 +106,8 @@ public class HomeBase2Activity extends TabActivity {
 //				//debug
 				//debug
 				TextView tempView = (TextView) findViewById(R.id.t2_LL_TEMP1_tv1);
-				String tempTxt = "FTPManager.ftpConnect()=" + FTPManager.ftpConnect();
+//				String tempTxt = "FTPManager.ftpConnect()=" + FTPManager.ftpConnect(in);
+				String tempTxt = FTPManager.ftpConnect(in);
 				tempView.setText(tempTxt);
 				
 				// enable the button again
@@ -132,7 +141,8 @@ public class HomeBase2Activity extends TabActivity {
  				
  				try {
  					// open stream
-					InputStream in = getContentResolver().openInputStream(data.getData());
+//					InputStream in = getContentResolver().openInputStream(data.getData());
+					in = getContentResolver().openInputStream(data.getData());
 
 					// display image
 					setPicture(BitmapFactory.decodeStream(in));
