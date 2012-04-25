@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +24,7 @@ public class HomeBase2Activity extends TabActivity {
 	 */
 	// Gallery
 	private static final int REQUEST_CODE_GALLARY = 0;
+	private Bitmap picture;
 	
     /** Called when the activity is first created. */
     @Override
@@ -115,13 +117,13 @@ public class HomeBase2Activity extends TabActivity {
  					// open stream
 					InputStream in = getContentResolver().openInputStream(data.getData());
 					
-					//debug
-					TextView tempView = (TextView) findViewById(R.id.t2_LL_TEMP1_tv1);
-					String tempTxt = "in.toString=" + in.toString();
-					tempView.setText(tempTxt);
+//					//debug
+//					TextView tempView = (TextView) findViewById(R.id.t2_LL_TEMP1_tv1);
+//					String tempTxt = "in.toString=" + in.toString();
+//					tempView.setText(tempTxt);
 					
 					// display image
-//					setPicture(BitmapFactory.decodeStream(in));
+					setPicture(BitmapFactory.decodeStream(in));
 					
 				} catch (FileNotFoundException e) {
 					// TODO 自動生成された catch ブロック
@@ -152,8 +154,28 @@ public class HomeBase2Activity extends TabActivity {
 //						Toast.LENGTH_LONG).show();
  	}
 
-	private void setPicture(Bitmap decodeStream) {
-		// TODO 自動生成されたメソッド・スタブ
+	private void setPicture(Bitmap picture) {
+		// define picture
+		this.picture = picture;
+		
+		// get a image view
+		ImageView imageView = (ImageView) findViewById(R.id.t2_iv);
+		
+		// set image
+		imageView.setImageBitmap(MyLib.resizePicture(picture, 180, 180));
+		
+		
+//		//debug
+//		Bitmap tempImage = MyLib.resizePicture(picture, 180, 180);
+//		//debug
+//		TextView tempView = (TextView) findViewById(R.id.t2_LL_TEMP1_tv1);
+//		String tempTxt = "tempImage=" + 
+//							String.valueOf(tempImage.getWidth()) +
+//							" : " + String.valueOf(tempImage.getHeight()) +
+//							"\n" +
+//							"picture=" + String.valueOf(picture.getWidth()) +
+//							" : " + String.valueOf(picture.getHeight());
+//		tempView.setText(tempTxt);
 		
 	}
 }

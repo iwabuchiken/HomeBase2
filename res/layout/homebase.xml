@@ -143,8 +143,8 @@
 		    
 			<!-- 画像 -->
 		      <ImageView
-					android:layout_width="match_parent"
-				  	android:layout_height="wrap_content"
+					android:layout_width="200sp"
+				  	android:layout_height="200sp"
 					android:id="@+id/t2_iv"
 					android:background="@drawable/border"
 					android:layout_margin="3dp"

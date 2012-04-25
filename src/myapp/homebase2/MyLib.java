@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.Random;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 
 public class MyLib {
 	//
@@ -198,4 +199,28 @@ public class MyLib {
     public static String getString(Context context, int resId) {
         return context.getResources().getString(resId);
     }//public static String getString(Context context, int resId)
+
+	public static Bitmap resizePicture(Bitmap picture, int maxWidth, int maxHeight) {
+		// secure picture
+		if (picture == null) {
+            return null;
+        }
+		
+		// 幅と高さで大きいほうに合わせてリサイズ
+        int width = 0;
+        int height = 0;
+
+        if (picture.getWidth() > picture.getHeight()) {
+            width = maxWidth;
+            height = width * picture.getHeight() / picture.getWidth();
+        } else {
+            height = maxHeight;
+            width = height * picture.getWidth() / picture.getHeight();
+        }
+		
+        // 算定したサイズでビットマップ生成
+        Bitmap result = Bitmap.createScaledBitmap(picture, width, height, true);
+        
+		return result;
+	}
 }
