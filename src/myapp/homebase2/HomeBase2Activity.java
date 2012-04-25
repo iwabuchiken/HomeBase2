@@ -84,14 +84,27 @@ public class HomeBase2Activity extends TabActivity {
         t2_LL1_btn2.setOnClickListener(new OnClickListener(){
 
 			public void onClick(View v) {
-				// 
+				// disenable the button
+				Button uploadBtn = (Button) findViewById(R.id.t2_LL1_btn2);
+				uploadBtn.setText("Uploading");
+				uploadBtn.setEnabled(false);
+				
+				// declare an FTPClient obj
 				FTPManager ftpMng = new FTPManager();
 				
-				//debug
+//				// connect to remote
+//				ftpMng.ftpConnect();
+				
+//				//debug
 				//debug
 				TextView tempView = (TextView) findViewById(R.id.t2_LL_TEMP1_tv1);
 				String tempTxt = "FTPManager.ftpConnect()=" + FTPManager.ftpConnect();
 				tempView.setText(tempTxt);
+				
+				// enable the button again
+				uploadBtn.setText("Upload");
+				uploadBtn.setEnabled(true);
+//				uploadBtn.setText("Upload");
 				
 //				// debug
 //				Toast.makeText(HomeBase2Activity.this, "Upload files", Toast.LENGTH_SHORT).show();

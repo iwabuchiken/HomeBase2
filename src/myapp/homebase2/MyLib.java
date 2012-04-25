@@ -236,32 +236,53 @@ public class MyLib {
 
 class FTPManager {
 
-	public static String ftpConnect() {
-		// define an FTP object
-//		FTPClient fc = new FTPClient();
-		
-		//debug
-		//7
-		FTPClient fc = new FTPClient();
-		StringBuilder sb = new StringBuilder();
-		
-		fc.setDefaultPort(21);
+	/*	disconnectFTP()
+	 * 
+	 * <Return>
+	 * 		1	=> disconnected
+	 * 		-1	=> Exception occurred
+	 */
+	public static int disconnectFTP(FTPClient ftpc) {
 		try {
+			ftpc.disconnect();
+			
+			return 1;
+		} catch (IOException e) {
+//			// TODO 自動生成された catch ブロック
+//			e.printStackTrace();
+			return -1;
+		}//try
+	}//disconnectFTP()
+	
+	public static String ftpConnect() {
+		// instance of FTPClient
+		FTPClient fc = new FTPClient();
+//		StringBuilder sb = new StringBuilder();
+		
+		// set the default port
+		fc.setDefaultPort(21);
+		
+		try {
+			// connect
 			fc.connect("174.132.28.185");
-			sb.append("getReplyCode=" + String.valueOf(fc.getReplyCode()));
-			sb.append("\n");
-			sb.append(String.valueOf(fc.login("polarbearland@stretch.cawing.info", "FQlRd2;i[77v")));
+			
+			// log in
+			fc.login("polarbearland@stretch.cawing.info", "FQlRd2;i[77v");
 			
 			// disconnect
-			try {
-				fc.disconnect();
-			} catch (IOException e) {
-				// TODO 自動生成された catch ブロック
-				e.printStackTrace();
-				return e.toString();
-			}//try
+			int result = FTPManager.disconnectFTP(fc);
 			
-			return sb.toString();
+			// return
+			if (result == 1) {
+				return "disconnected";
+			} else if (result == -1){//if (result == 1)
+				return "Exception occurred";
+			} else {
+				return "Unknown error";
+			}//if (result == 1)
+			
+						
+//			return sb.toString();
 			
 //			return String.valueOf(fc.login("polarbearland@stretch.cawing.info", "FQlRd2;i[77v"));
 			
@@ -274,6 +295,7 @@ class FTPManager {
 			e.printStackTrace();
 			return e.toString();
 		} finally {
+			
 			try {
 				fc.disconnect();
 			} catch (IOException e) {
