@@ -242,7 +242,48 @@ class FTPManager {
 		
 		//debug
 		//7
-		FTPClient fc = new FTPClient("174.132.28.185", "polarbearland@stretch.cawing.info", "FQlRd2;i[77v");
+		FTPClient fc = new FTPClient();
+		StringBuilder sb = new StringBuilder();
+		
+		fc.setDefaultPort(21);
+		try {
+			fc.connect("174.132.28.185");
+			sb.append("getReplyCode=" + String.valueOf(fc.getReplyCode()));
+			sb.append("\n");
+			sb.append(String.valueOf(fc.login("polarbearland@stretch.cawing.info", "FQlRd2;i[77v")));
+			
+			// disconnect
+			try {
+				fc.disconnect();
+			} catch (IOException e) {
+				// TODO 自動生成された catch ブロック
+				e.printStackTrace();
+				return e.toString();
+			}//try
+			
+			return sb.toString();
+			
+//			return String.valueOf(fc.login("polarbearland@stretch.cawing.info", "FQlRd2;i[77v"));
+			
+		} catch (SocketException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+			return e.toString();
+		} catch (IOException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+			return e.toString();
+		} finally {
+			try {
+				fc.disconnect();
+			} catch (IOException e) {
+				// TODO 自動生成された catch ブロック
+				e.printStackTrace();
+				return e.toString();
+			}
+		}
+		
+//		return String.valueOf(fc.getReplyCode());
 		
 		// connect
 //		try {
