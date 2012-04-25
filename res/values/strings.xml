@@ -23,6 +23,7 @@
 <!-- Tab 2     -->
     <string name="t2_LL1_btn1">ファイルを選ぶ</string>
     <string name="t2_LL1_btn2">アップロード</string>
+    <string name="picture_select_title">Choose location</string>
 		
 <!-- Global -->
     <string name="exec_btn">What shall i do?</string>

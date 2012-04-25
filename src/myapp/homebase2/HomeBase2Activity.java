@@ -2,6 +2,7 @@ package myapp.homebase2;
 
 import android.app.Activity;
 import android.app.TabActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -44,10 +45,20 @@ public class HomeBase2Activity extends TabActivity {
         t2_LL1_btn1.setTag("choseFiles");
         t2_LL1_btn1.setOnClickListener(new OnClickListener(){
 
+			private static final int REQUEST_CODE_GALLARY = 0;
+
 			public void onClick(View v) {
-				// 
-				// debug
-				Toast.makeText(HomeBase2Activity.this, "Choose files", Toast.LENGTH_SHORT).show();
+				// インテント生成
+				Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+				// インテントタイプを画像で設定
+				intent.setType("image/*");
+				// ギャラリー起動
+				startActivityForResult(Intent.createChooser(intent, MyLib
+						.getString(HomeBase2Activity.this,
+								R.string.picture_select_title)),
+						REQUEST_CODE_GALLARY );
+//				// debug
+//				Toast.makeText(HomeBase2Activity.this, "Choose files", Toast.LENGTH_SHORT).show();
 			}
         	
         });//t2_LL1_btn1.setOnClickListener()

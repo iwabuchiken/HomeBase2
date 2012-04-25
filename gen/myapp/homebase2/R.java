@@ -41,16 +41,17 @@ public final class R {
     }
     public static final class string {
         public static final int app_name=0x7f040001;
-        public static final int default_text=0x7f04000e;
+        public static final int default_text=0x7f04000f;
         /**  Global 
          */
-        public static final int exec_btn=0x7f04000d;
+        public static final int exec_btn=0x7f04000e;
         public static final int hello=0x7f040000;
         public static final int password_type_alnum=0x7f04000a;
         /**  Selection items: Type 
          */
         public static final int password_type_alphabet=0x7f040008;
         public static final int password_type_number=0x7f040009;
+        public static final int picture_select_title=0x7f04000d;
         /**  Tab 2     
          */
         public static final int t2_LL1_btn1=0x7f04000b;
@@ -61,7 +62,7 @@ public final class R {
         public static final int tab1_LL1_btn1=0x7f040002;
         public static final int tab1_LL2_btn1=0x7f040003;
         public static final int tab1_LL3_btn1=0x7f040004;
-        public static final int tv_size_1=0x7f04000f;
+        public static final int tv_size_1=0x7f040010;
         /**  TextView labels 
          */
         public static final int txt_t1_LL1_tv1=0x7f040005;
