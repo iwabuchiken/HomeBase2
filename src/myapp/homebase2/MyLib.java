@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Random;
 
+//import myapp.homebase2.MyLib.FTPManager;
+
 import android.content.Context;
 import android.graphics.Bitmap;
 
@@ -13,6 +15,8 @@ public class MyLib {
 	
 	// String for "generatePassword()"
 	static String charSource = "abcdefghijklmn";
+
+	
 	
 	// Password types			//=> NOT USED
 	enum PwdTypes {
@@ -224,3 +228,15 @@ public class MyLib {
 		return result;
 	}
 }
+
+class FTPManager {
+
+//	// INSTANCE
+//	private final FTPManager INSTANCE = new FTPManager();
+//	
+//	public FTPManager getInstance() {
+//		
+//		return INSTANCE;
+//	}//public FTPManager getInstance()
+	
+}//class FTPManager

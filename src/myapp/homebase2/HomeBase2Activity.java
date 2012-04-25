@@ -3,6 +3,8 @@ package myapp.homebase2;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
+//import myapp.homebase2.MyLib.FTPManager;
+
 import android.app.Activity;
 import android.app.TabActivity;
 import android.content.Intent;
@@ -83,8 +85,9 @@ public class HomeBase2Activity extends TabActivity {
 
 			public void onClick(View v) {
 				// 
-				// debug
-				Toast.makeText(HomeBase2Activity.this, "Upload files", Toast.LENGTH_SHORT).show();
+				FTPManager ftpMng = new FTPManager();
+//				// debug
+//				Toast.makeText(HomeBase2Activity.this, "Upload files", Toast.LENGTH_SHORT).show();
 			}
         	
         });//t2_LL1_btn1.setOnClickListener()
