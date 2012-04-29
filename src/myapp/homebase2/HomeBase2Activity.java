@@ -121,6 +121,8 @@ public class HomeBase2Activity extends TabActivity {
         	
         });//t2_LL1_btn1.setOnClickListener()
         
+        
+        
     }//public void onCreate(Bundle savedInstanceState)
     
     // onActivityResultメソッド(画面再表示時イベント)
