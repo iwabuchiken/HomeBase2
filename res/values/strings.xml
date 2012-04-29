@@ -29,5 +29,18 @@
     <string name="exec_btn">What shall i do?</string>
     <string name="default_text">More to come!!</string>
     <string name="tv_size_1">200sp</string>
-    
+<!-- Tab 3 -->
+	<string name="t3_start_button">Start</string>
+	<string name="t3_stop_button">Stop</string>
+	<string name="t3_select_message">Select time</string>
+	<string name="t3_time">Count down time</string>
+	<string-array name="selection_times">
+		<item >10</item>
+		<item >20</item>
+		<item >30</item>
+	</string-array>
+	
+	
+	
+
 </resources>

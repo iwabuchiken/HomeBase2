@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -121,6 +122,39 @@ public class HomeBase2Activity extends TabActivity {
         	
         });//t2_LL1_btn1.setOnClickListener()
         
+        /* tab 3
+         * 
+         */
+        // Set a listener: "Timer"
+        Button t3_start_button = (Button) findViewById(R.id.t3_start_button);
+        t3_start_button.setTag("timer");
+        t3_start_button.setOnClickListener(new OnClickListener(){
+
+			public void onClick(View v) {
+				// Get the count down time
+				Spinner spinner = (Spinner) findViewById(R.id.t3_selection);
+//				Integer selectedTime = (Integer) spinner.getSelectedItem();
+				String selectedTime = (String) spinner.getSelectedItem();
+				
+//				//Debug
+//				mylib.MyLib.showToast(HomeBase2Activity.this, 
+//									selectedTime, 2);
+////									selectedTime.toString(), 2);
+				
+				// Define timer manager
+//				TimerManager tm = new TimerManager(10000, 1000, HomeBase2Activity.this);]
+				TimerManager tm = 
+//								new TimerManager(selectedTime.intValue() * 1000, 
+								new TimerManager(Integer.parseInt(selectedTime) * 1000,
+															1000, 
+															HomeBase2Activity.this);
+				
+				// Start timer
+				tm.start();
+				
+			}//public void onClick(View v)
+        	
+        });//t2_LL1_btn1.setOnClickListener()
         
         
     }//public void onCreate(Bundle savedInstanceState)

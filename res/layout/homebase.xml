@@ -168,22 +168,53 @@
         <LinearLayout
             android:id="@+id/tab3_LL1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal" >
-
+
             <Button
-                android:id="@+id/t3_LL1_btn1"
+                android:id="@+id/t3_start_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/exec_btn" />
-
-            <TextView
-                android:id="@+id/t3_LL1_tv1"
+                android:text="@string/t3_start_button" />
+
+            <Button
+                android:id="@+id/t3_stop_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/default_text" />
+                android:text="@string/t3_stop_button" />
 
         </LinearLayout><!-- tab3_LL1 --><!-- tab3_LL2 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/t3_select_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/t3_select_message" />
+
+            <Spinner
+                android:id="@+id/t3_selection"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:entries="@array/selection_times"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/t3_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/t3_time" />
+
+        </LinearLayout>
 
     </LinearLayout><!-- tab3 -->
 
