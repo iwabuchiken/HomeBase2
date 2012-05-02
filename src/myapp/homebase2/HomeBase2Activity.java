@@ -31,6 +31,18 @@ public class HomeBase2Activity extends TabActivity {
 	// Gallery
 	private static final int REQUEST_CODE_GALLARY = 0;
 	private Bitmap picture;
+
+	/* Fileds for the tab 3
+	 * 
+	 */
+	// timerStatus
+	//	0 => Stop
+	//	1 => Counting
+	private static int timerStatus = 0;
+//	public static int timerStatus = 0;
+
+	// TimerManager
+	TimerManager tm = null;
 	
     /** Called when the activity is first created. */
     @Override
@@ -131,31 +143,68 @@ public class HomeBase2Activity extends TabActivity {
         t3_start_button.setOnClickListener(new OnClickListener(){
 
 			public void onClick(View v) {
-				// Get the count down time
-				Spinner spinner = (Spinner) findViewById(R.id.t3_selection);
-//				Integer selectedTime = (Integer) spinner.getSelectedItem();
-				String selectedTime = (String) spinner.getSelectedItem();
+				if (timerStatus == 0) {
+					// Change the timer status to 1
+					timerStatus = 1;
+					
+					// Get the count down time
+					Spinner spinner = (Spinner) findViewById(R.id.t3_selection);
+					String selectedTime = (String) spinner.getSelectedItem();
+					
+					// Define timer manager
+//					TimerManager tm = 
+					tm = new TimerManager(Integer.parseInt(selectedTime) * 1000,
+																1000, 
+																HomeBase2Activity.this);
+					// Start timer
+					tm.start();
+				} else if (timerStatus == 1) {//if (timerStatus == 0)
+					mylib.MyLib.showToast(HomeBase2Activity.this, "Counting down !", 1);
+				} else {//if (timerStatus == 0)
+					mylib.MyLib.showToast(
+										HomeBase2Activity.this, 
+										"What's going on ? Timer status = " + timerStatus, 1);
+				}//if (timerStatus == 0)
 				
-//				//Debug
-//				mylib.MyLib.showToast(HomeBase2Activity.this, 
-//									selectedTime, 2);
-////									selectedTime.toString(), 2);
 				
-				// Define timer manager
-//				TimerManager tm = new TimerManager(10000, 1000, HomeBase2Activity.this);]
-				TimerManager tm = 
-//								new TimerManager(selectedTime.intValue() * 1000, 
-								new TimerManager(Integer.parseInt(selectedTime) * 1000,
-															1000, 
-															HomeBase2Activity.this);
-				
-				// Start timer
-				tm.start();
+					
+					
 				
 			}//public void onClick(View v)
         	
         });//t2_LL1_btn1.setOnClickListener()
         
+     // Set a listener: "Stop"
+        Button t3_stop_button = (Button) findViewById(R.id.t3_stop_button);
+        t3_stop_button.setTag("timerStop");
+        t3_stop_button.setOnClickListener(new OnClickListener(){
+
+			public void onClick(View v) {
+				// Cancel the timer
+				if (timerStatus == 1) {
+					// Cancel
+					tm.cancel();
+					
+					// Set a message on the time view
+					TextView tvTime = (TextView) findViewById(R.id.t3_time);
+					tvTime.setText("Stopped counting down.");
+					
+					// Set the timer status back to 0
+					timerStatus = 0;
+					
+				} else if (timerStatus == 0) {//if (timerStatus == 1)
+					mylib.MyLib.showToast(
+									HomeBase2Activity.this, 
+									"Year, I'm not counting down.", 1);
+				} else {//if (timerStatus == 1)
+					mylib.MyLib.showToast(
+									HomeBase2Activity.this, 
+									"I'm confused. The status is: " + timerStatus, 1);
+				}//if (timerStatus == 1)
+				
+			}//public void onClick(View v)
+        	
+        });//t2_LL1_btn1.setOnClickListener()
         
     }//public void onCreate(Bundle savedInstanceState)
     
@@ -202,5 +251,10 @@ public class HomeBase2Activity extends TabActivity {
 		// set image
 		imageView.setImageBitmap(MyLib.resizePicture(picture, 180, 180));
 
+	}
+
+	public static void setTimerStatusToZero() {
+		// TODO 自動生成されたメソッド・スタブ
+		timerStatus = 0;
 	}
 }

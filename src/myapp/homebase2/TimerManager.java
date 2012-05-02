@@ -22,7 +22,12 @@ public class TimerManager extends CountDownTimer {
 	@Override
 	public void onFinish() {
 		// TODO 自動生成されたメソッド・スタブ
+		// Show message
 		MyLib.showToast((Activity)con, "Done", 1);
+		
+		// Set the timer status to 0
+		HomeBase2Activity.setTimerStatusToZero();
+		
 	}
 
 	@Override
